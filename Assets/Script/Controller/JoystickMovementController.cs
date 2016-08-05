@@ -35,7 +35,7 @@ public class JoystickMovementController : PlayerMovementController
         */
         // AL presionar A
         // TODO : Eliminar boton B en este caso
-		if (state.Buttons.A == ButtonState.Pressed || state.Buttons.B == ButtonState.Pressed) {
+		if (state.Buttons.A == ButtonState.Pressed) {
 			if(player.state == PlayerState.NO_STAFF){
 				player.pickStaff();
 				return;
@@ -52,7 +52,9 @@ public class JoystickMovementController : PlayerMovementController
 		}
 		// Al presionar B
 		else if (state.Buttons.B == ButtonState.Pressed) {
-			// TODO : Direccion de burjula
+			// Direccion de burjula
+			// TODO : Relacionar con state del player
+			player.askOrientation();
 		}
 		// Al presionar Y
 		else if (state.Buttons.Y == ButtonState.Pressed) {

@@ -465,11 +465,24 @@ public class Player : MonoBehaviour
 		geomLevel = geomLevel + 1;
 	}
 
+	// TODO : Documentar
 	public void askOrientation(){
-		// TODO : Obtener orientacion del jugador
-		// TODO : Detener al jugador
-		// TODO : Hacer switch de direccion y hacer sonido
-		// TODO : Dejar mover a jugador
+		wait (1);
+		switch (currentDir) {
+		case 0:
+			{SoundManager.instance.PlaySingle ("norte");
+			return;}
+		case 1:
+			{SoundManager.instance.PlaySingle ("este");
+			return;}
+		case 2:
+			{SoundManager.instance.PlaySingle ("sur");
+			return;}
+		default:
+			{SoundManager.instance.PlaySingle ("oeste");
+			return;}
+		}
+		// TODO : Sonido de error inesperado
 	}
 }
 
