@@ -380,11 +380,11 @@ public class Player : MonoBehaviour
 	}
 
 	private void makeTurningLeftSound(){
-		SoundManager.instance.PlayDirectionalSingle("turning-left", -1.0f);
+		SoundManager.instance.PlayDirectionalSingle("giro-izquierda", -1.0f);
 	}
 	
 	private void makeTurningRightSound(){
-		SoundManager.instance.PlayDirectionalSingle("turning-right", 1.0f);
+		SoundManager.instance.PlayDirectionalSingle("giro-derecha", 1.0f);
 	}
 
 	private void noStaffAlert(){
