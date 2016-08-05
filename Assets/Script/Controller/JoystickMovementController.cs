@@ -33,6 +33,8 @@ public class JoystickMovementController : PlayerMovementController
             player.move();
         }
         */
+        // AL presionar A
+        // TODO : Eliminar boton B en este caso
 		if (state.Buttons.A == ButtonState.Pressed || state.Buttons.B == ButtonState.Pressed) {
 			if(player.state == PlayerState.NO_STAFF){
 				player.pickStaff();
@@ -48,6 +50,19 @@ public class JoystickMovementController : PlayerMovementController
 				player.askLeft();
 			return;
 		}
+		// Al presionar B
+		else if (state.Buttons.B == ButtonState.Pressed) {
+			// TODO : Direccion de burjula
+		}
+		// Al presionar Y
+		else if (state.Buttons.Y == ButtonState.Pressed) {
+			// TODO : Tocar, si en tesoro obtener dependiendo de tesoro
+		} 
+		// Al presionar X
+		else if (state.Buttons.X == ButtonState.Pressed) {
+			// TODO : Reproducir ayuda cubo
+		}
+		// Moverse en direcciones
         else if (rightEvent())
         {
             player.turnRight();

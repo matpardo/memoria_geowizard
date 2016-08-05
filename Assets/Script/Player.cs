@@ -464,5 +464,12 @@ public class Player : MonoBehaviour
 	public void increaseOneGeomLevel(){
 		geomLevel = geomLevel + 1;
 	}
+
+	public void askOrientation(){
+		// TODO : Obtener orientacion del jugador
+		// TODO : Detener al jugador
+		// TODO : Hacer switch de direccion y hacer sonido
+		// TODO : Dejar mover a jugador
+	}
 }
 
