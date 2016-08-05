@@ -34,7 +34,6 @@ public class JoystickMovementController : PlayerMovementController
         }
         */
         // AL presionar A
-        // TODO : Eliminar boton B en este caso
 		if (state.Buttons.A == ButtonState.Pressed) {
 			if(player.state == PlayerState.NO_STAFF){
 				player.pickStaff();
@@ -73,8 +72,7 @@ public class JoystickMovementController : PlayerMovementController
         {
             player.turnLeft();
         }
-
-        if (upEvent())
+        else if (upEvent())
         {
             player.move();
         }
