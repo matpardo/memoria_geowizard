@@ -143,4 +143,14 @@ public class JoystickMovementController : PlayerMovementController
 		float y = state.ThumbSticks.Left.Y;
 		return  y < 0 && Mathf.Abs(y)>Mathf.Abs(x);
 	}
+
+	private bool topEvent(){
+		// TODO : Hacer esto, debe ser LB
+		return false;
+	}
+
+	private bool bottomEvent() {
+		// TODO : Hacer esto, debe ser LT
+		return false;
+	}
 }
