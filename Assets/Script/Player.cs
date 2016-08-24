@@ -398,7 +398,7 @@ public class Player : MonoBehaviour
 	public void pickStaff(){
 		state = PlayerState.STOPPED;
 		wait (1);
-		SoundManager.instance.PlaySingle("correct");
+		SoundManager.instance.PlaySingle("baston_despliegue_interior_n");
 		Debug.Log("Staff picked");
 	}
 
