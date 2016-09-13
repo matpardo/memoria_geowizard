@@ -6,6 +6,13 @@ public abstract class RoomEntity : MonoBehaviour
     private Vector2 pos;
     public abstract void handleCollision();
 	public abstract void ask();
+    
+    // TODO : do Touch
+    public void touch()
+    {
+        return;
+    }
+
     public virtual bool destroyable()
     {
         return false;

@@ -441,6 +441,11 @@ public class Player : MonoBehaviour
 		wait (0.5f);
 	}
 
+	public void askBehind() {
+		Room.GetInstance ().ask (backPosition());
+		wait (0.5f);
+	}
+
 	public Vector2 rightPosition(){
 		int rightDir = (currentDir + 1) % 4;
 		return position + directions [rightDir];
@@ -452,6 +457,18 @@ public class Player : MonoBehaviour
 	public Vector2 frontPosition(){
 		return position + direction;
 	}
+
+	public Vector2 backPosition() {
+		return position - direction;
+	}
+
+	// public Vector2 overPosition() {
+
+	// }
+
+	// public Vector2 bottomPosition() {
+
+	// }
 
 	public int getGeomLevel(){
 		return geomLevel;
@@ -482,7 +499,6 @@ public class Player : MonoBehaviour
 			{SoundManager.instance.PlaySingle ("oeste");
 			return;}
 		}
-		// TODO : Sonido de error inesperado
 	}
 }
 
