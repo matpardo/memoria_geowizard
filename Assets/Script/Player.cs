@@ -451,7 +451,7 @@ public class Player : MonoBehaviour
 		return position + directions [rightDir];
 	}
 	public Vector2 leftPosition(){
-		int leftDir = (currentDir-1) >= 0 ? (currentDir-1) : 3;
+		int leftDir = (currentDir - 1) >= 0 ? (currentDir-1) : 3;
 		return position + directions [leftDir];
 	}
 	public Vector2 frontPosition(){
@@ -469,6 +469,30 @@ public class Player : MonoBehaviour
 	// public Vector2 bottomPosition() {
 
 	// }
+
+	public void touchAhead() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchRight() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchLeft() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchBehind() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchOver() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchBottom()  {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
 
 	public int getGeomLevel(){
 		return geomLevel;
