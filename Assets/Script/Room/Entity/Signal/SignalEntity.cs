@@ -16,6 +16,12 @@ public class SignalEntity : RoomEntity
 	public override void ask ()
 	{
 	}
+
+	public override void touch()
+    {
+        SoundManager.instance.PlaySingle ("Horse-nay");
+        return;
+    }
 	
 }
 

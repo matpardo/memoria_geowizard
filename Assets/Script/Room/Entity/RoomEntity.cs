@@ -6,13 +6,7 @@ public abstract class RoomEntity : MonoBehaviour
     private Vector2 pos;
     public abstract void handleCollision();
 	public abstract void ask();
-    
-    // TODO : do Touch
-    public void touch()
-    {
-        SoundManager.instance.PlaySingle ("Horse-nay");
-        return;
-    }
+    public abstract void touch();
 
     public virtual bool destroyable()
     {
