@@ -120,12 +120,12 @@ public class Player : MonoBehaviour
 		//faces order: front (initial): 0, left: 1, back: 2, right 3, up 4, down 5
 		//always starts with water ability unlocked
 		currentAbilityState = new AbilityState[]{
-			AbilityState.AGUA,
-			AbilityState.TIERRA,
-			AbilityState.FUEGO,
+			AbilityState.ARCANO,
 			AbilityState.VIENTO,
 			AbilityState.NATURALEZA,
-			AbilityState.ARCANO
+			AbilityState.AGUA,
+			AbilityState.TIERRA,
+			AbilityState.FUEGO
 		};
 
 
