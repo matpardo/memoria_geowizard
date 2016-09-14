@@ -471,19 +471,25 @@ public class Player : MonoBehaviour
 	// }
 
 	public void touchAhead() {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		Room.GetInstance ().touch (frontPosition());
+		wait (0.5f);
 	}
 
 	public void touchRight() {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		Vector2 dest = rightPosition ();
+		Room.GetInstance ().touch (dest);
+		wait (0.5f);
 	}
 
 	public void touchLeft() {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		Vector2 dest = leftPosition ();
+		Room.GetInstance ().touch (dest);
+		wait (0.5f);
 	}
 
 	public void touchBehind() {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		Room.GetInstance ().touch (backPosition());
+		wait (0.5f);
 	}
 
 	public void touchOver() {

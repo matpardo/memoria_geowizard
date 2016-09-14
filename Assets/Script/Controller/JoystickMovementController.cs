@@ -53,7 +53,8 @@ public class JoystickMovementController : PlayerMovementController
 			}
 			else if(leftEvent()) {
 				player.askLeft();
-			} else if(downEvent()) {
+			} 
+			else if(downEvent()) {
 				player.askBehind();
 			}
 			return;
@@ -62,7 +63,11 @@ public class JoystickMovementController : PlayerMovementController
 		else if (state.Buttons.B == ButtonState.Pressed) {
 			// Direccion de brujula
 			// TODO : Relacionar con state del player
+			// if(player.state != PlayerState.STOPPED) {
+			// 	return;
+			// }
 			player.askOrientation();
+			return;
 		}
 		// Al presionar Y
 		else if (state.Buttons.Y == ButtonState.Pressed) {
@@ -73,7 +78,7 @@ public class JoystickMovementController : PlayerMovementController
 					if(player.state != PlayerState.STOPPED) {
 						return;
 					}
-
+					// Toques normales
 					if(upEvent()) {
 						player.touchAhead();
 					}

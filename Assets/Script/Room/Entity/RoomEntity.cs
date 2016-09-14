@@ -10,6 +10,7 @@ public abstract class RoomEntity : MonoBehaviour
     // TODO : do Touch
     public void touch()
     {
+        SoundManager.instance.PlaySingle ("Horse-nay");
         return;
     }
 
