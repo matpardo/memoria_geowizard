@@ -24,5 +24,9 @@ public class DoorEntity : SignalEntity
 	{
 		SoundManager.instance.PlaySingle ("ayuda-puerta");
 	}
+
+	public override void touch () {
+		SoundManager.instance.PlaySingle ("crashDoor");
+	}
 }
 

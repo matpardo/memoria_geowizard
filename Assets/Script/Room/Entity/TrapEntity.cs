@@ -21,5 +21,9 @@ public class TrapEntity : SignalEntity
 	{
 		SoundManager.instance.PlaySingle ("advertencia-trampa");
 	}
+
+	public override void touch () {
+		SoundManager.instance.PlaySingle ("crashTrap");
+	}
 }
 

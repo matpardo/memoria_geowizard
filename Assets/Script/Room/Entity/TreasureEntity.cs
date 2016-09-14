@@ -23,6 +23,10 @@ public class TreasureEntity : SignalEntity
 		SoundManager.instance.PlaySingle ("tomar-tesoro");
 	}
 
+	public override void touch () {
+		SoundManager.instance.PlaySingle ("item_pickup");
+	}
+
 	public void generateTreasureRandomLootBoost() {
 		AbilityState[] listAbilityPool = new AbilityState[]{
 			AbilityState.AGUA,

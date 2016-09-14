@@ -165,5 +165,9 @@ public class MonsterEntity : SignalEntity
 	public override void ask(){
 		SoundManager.instance.PlaySingle ("un-enemigo");
 	}
+
+	public override void touch() {
+		SoundManager.instance.PlaySingle ("Monster");
+	}
 }
 
