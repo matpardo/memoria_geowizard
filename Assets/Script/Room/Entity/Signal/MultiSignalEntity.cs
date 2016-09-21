@@ -16,6 +16,10 @@ public class MultiSignalEntity : RoomEntity
 	{
 
 	}
+
+	public override void touch() {
+		
+	}
 	
 	private void makeSounds(){
 		Player p = Game.GetInstance ().player;

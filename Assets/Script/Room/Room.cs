@@ -166,8 +166,17 @@ public class Room
 	public void ask(Vector2 pos){
 		if (!isInside (pos) || (isInside (pos) && !walkableCell(pos)))
 			SoundManager.instance.PlaySingle ("una-muralla");
-		else if (getEntityAt (pos) != null) 
+		else if (getEntityAt (pos) != null) {
 			getEntityAt (pos).ask ();
+		}
+	}
+
+	public void touch(Vector2 pos) {
+		if (!isInside (pos) || (isInside (pos) && !walkableCell(pos)))
+			SoundManager.instance.PlaySingle ("crashWall");
+		else if (getEntityAt (pos) != null) {
+			getEntityAt (pos).touch ();
+		}
 	}
 
 }

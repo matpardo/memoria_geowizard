@@ -7,7 +7,7 @@ public class PlayerMovementRestriction : MonoBehaviour
 	private AudioSource source;
 
 	private bool toggle = true;
-	public AudioClip choque;
+	// public AudioClip choque;
 
 	private float lastPress = 1f;
 	private float delay = 1f;
@@ -30,8 +30,8 @@ public class PlayerMovementRestriction : MonoBehaviour
 			} else {
 				go.GetComponent<AudioSource> ().Play ();
             }*/
-            source.PlayOneShot(choque);
-            
+            // source.PlayOneShot(choque);
+            SoundManager.instance.PlaySingle ("error");
 
         }
 	}

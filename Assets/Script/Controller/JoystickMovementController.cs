@@ -35,29 +35,70 @@ public class JoystickMovementController : PlayerMovementController
         */
         // AL presionar A
 		if (state.Buttons.A == ButtonState.Pressed) {
+
 			if(player.state == PlayerState.NO_STAFF){
 				player.pickStaff();
 				return;
 			}
-			if(player.state != PlayerState.STOPPED)
+
+			if(player.state != PlayerState.STOPPED) {
 				return;
-			if(upEvent())
+			}
+
+			if(upEvent()) {
 				player.askAhead();
-			else if(rightEvent())
+			}
+			else if(rightEvent()) {
 				player.askRight();
-			else if(leftEvent())
+			}
+			else if(leftEvent()) {
 				player.askLeft();
+			} 
+			else if(downEvent()) {
+				player.askBehind();
+			}
 			return;
 		}
 		// Al presionar B
 		else if (state.Buttons.B == ButtonState.Pressed) {
-			// Direccion de burjula
+			// Direccion de brujula
 			// TODO : Relacionar con state del player
+			// if(player.state != PlayerState.STOPPED) {
+			// 	return;
+			// }
 			player.askOrientation();
+			return;
 		}
 		// Al presionar Y
 		else if (state.Buttons.Y == ButtonState.Pressed) {
 			// TODO : Tocar, si en tesoro obtener dependiendo de tesoro
+			if (false) {
+
+				} else {
+					if(player.state != PlayerState.STOPPED) {
+						return;
+					}
+					// Toques normales
+					if(upEvent()) {
+						player.touchAhead();
+					}
+					else if(rightEvent()) {
+						player.touchRight();
+					}
+					else if(leftEvent()) {
+						player.touchLeft();
+					} 
+					else if(downEvent()) {
+						player.touchBehind();
+					} 
+					else if (topEvent()) {
+						player.touchOver();
+					} 
+					else if(bottomEvent()) {
+						player.touchBottom();
+					}
+					return;
+				}
 		} 
 		// Al presionar X
 		else if (state.Buttons.X == ButtonState.Pressed) {
@@ -145,12 +186,10 @@ public class JoystickMovementController : PlayerMovementController
 	}
 
 	private bool topEvent(){
-		// TODO : Hacer esto, debe ser LB
-		return false;
+		return state.Buttons.LeftShoulder == ButtonState.Pressed;
 	}
 
 	private bool bottomEvent() {
-		// TODO : Hacer esto, debe ser LT
-		return false;
+		return state.Triggers.Left > 0 ;
 	}
 }

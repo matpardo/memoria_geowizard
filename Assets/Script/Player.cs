@@ -120,12 +120,12 @@ public class Player : MonoBehaviour
 		//faces order: front (initial): 0, left: 1, back: 2, right 3, up 4, down 5
 		//always starts with water ability unlocked
 		currentAbilityState = new AbilityState[]{
-			AbilityState.AGUA,
-			AbilityState.TIERRA,
-			AbilityState.FUEGO,
+			AbilityState.ARCANO,
 			AbilityState.VIENTO,
 			AbilityState.NATURALEZA,
-			AbilityState.ARCANO
+			AbilityState.AGUA,
+			AbilityState.TIERRA,
+			AbilityState.FUEGO
 		};
 
 
@@ -398,7 +398,7 @@ public class Player : MonoBehaviour
 	public void pickStaff(){
 		state = PlayerState.STOPPED;
 		wait (1);
-		SoundManager.instance.PlaySingle("correct");
+		SoundManager.instance.PlaySingle("baston_despliegue_interior_n");
 		Debug.Log("Staff picked");
 	}
 
@@ -441,16 +441,63 @@ public class Player : MonoBehaviour
 		wait (0.5f);
 	}
 
+	public void askBehind() {
+		Room.GetInstance ().ask (backPosition());
+		wait (0.5f);
+	}
+
 	public Vector2 rightPosition(){
 		int rightDir = (currentDir + 1) % 4;
 		return position + directions [rightDir];
 	}
 	public Vector2 leftPosition(){
-		int leftDir = (currentDir-1) >= 0 ? (currentDir-1) : 3;
+		int leftDir = (currentDir - 1) >= 0 ? (currentDir-1) : 3;
 		return position + directions [leftDir];
 	}
 	public Vector2 frontPosition(){
 		return position + direction;
+	}
+
+	public Vector2 backPosition() {
+		return position - direction;
+	}
+
+	// public Vector2 overPosition() {
+
+	// }
+
+	// public Vector2 bottomPosition() {
+
+	// }
+
+	public void touchAhead() {
+		Room.GetInstance ().touch (frontPosition());
+		wait (0.5f);
+	}
+
+	public void touchRight() {
+		Vector2 dest = rightPosition ();
+		Room.GetInstance ().touch (dest);
+		wait (0.5f);
+	}
+
+	public void touchLeft() {
+		Vector2 dest = leftPosition ();
+		Room.GetInstance ().touch (dest);
+		wait (0.5f);
+	}
+
+	public void touchBehind() {
+		Room.GetInstance ().touch (backPosition());
+		wait (0.5f);
+	}
+
+	public void touchOver() {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
+	}
+
+	public void touchBottom()  {
+		// SoundManager.instance.PlaySingle ("Horse-nay");
 	}
 
 	public int getGeomLevel(){
@@ -482,7 +529,6 @@ public class Player : MonoBehaviour
 			{SoundManager.instance.PlaySingle ("oeste");
 			return;}
 		}
-		// TODO : Sonido de error inesperado
 	}
 }
 

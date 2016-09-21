@@ -15,6 +15,13 @@ public class GeometricEntity : RoomEntity
 	public override void ask ()
 	{
 		Debug.Log("Cuarto geometrico");
+		SoundManager.instance.PlaySingle ("Horse-nay");
 	}
+
+	public override void touch()
+    {
+        SoundManager.instance.PlaySingle ("Horse-nay");
+        return;
+    }
 }
 

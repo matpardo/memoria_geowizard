@@ -22,5 +22,9 @@ public class WarpEntity : SignalEntity
 	{
 		SoundManager.instance.PlaySingle ("energia-portal");
 	}
+
+	public override void touch () {
+		SoundManager.instance.PlaySingle ("warp");
+	}
 }
 
