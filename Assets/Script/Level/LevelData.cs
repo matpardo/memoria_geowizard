@@ -129,7 +129,7 @@ public class LevelData
 			return Entity.MONSTER;
 		case '-':
 			return Entity.SIGNAL_MULTI;
-		case '%':
+		case 'u':
 			return Entity.SIGNAL_UP;
 		case 'd':
 			return Entity.SIGNAL_DOWN;
@@ -148,6 +148,32 @@ public class LevelData
 
 	public static LevelData getLevel(int n){
 		LevelData levelData = new LevelData ();
+
+		// switch (n) {
+		// 	case 1:
+		// 		levelData.hallData = new string[]{
+		// 			"#D#############",
+		// 			"# #############",
+		// 			"# #############",
+		// 			"# #############",
+		// 			"#u#############",
+		// 			"# #############",
+		// 			"# #############",
+		// 			"# #############",
+		// 			"# #############",
+		// 		};
+		// 		levelData.startPosition = new Vector2(1, 8);
+		// 		/*Orientations*/
+		// 		//Doors
+		// 		levelData.addOrientation(1, 0, Orientation.SOUTH);
+		// 		levelData.addDoor(1, 0);
+	 //            break;
+  //           default:
+		// 		break;
+		// }
+		// return levelData;
+
+
 		switch (n) {
 		case 1:
 			levelData.hallData = new string[]{
