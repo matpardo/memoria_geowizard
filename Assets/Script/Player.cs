@@ -560,7 +560,7 @@ public class Player : MonoBehaviour
 				Destroy(actual_treasure.gameObject);
 				actual_treasure = null;
 				state = PlayerState.STOPPED;
-				wait (5);
+				wait (6);
 			}
 		} else {
 			SoundManager.instance.PlaySingle ("Horse-nay");
