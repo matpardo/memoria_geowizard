@@ -546,6 +546,7 @@ public class Player : MonoBehaviour
 			if (actual_treasure.isPositionTreasure(position)) {
 				actual_treasure.getLoot();
 				actual_treasure.makeDestroyable();
+				Destroy(actual_treasure.gameObject);
 				actual_treasure = null;
 				state = PlayerState.STOPPED;
 				wait (5);

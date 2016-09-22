@@ -14,10 +14,12 @@ public class TreasureEntity : SignalEntity
 		// base.handleCollision ();
 		// Game.GetInstance ().player.wait (1.5f);
 		// Invoke ("generateTreasureRandomLootBoost", 1);
-		is_destroyable = false;
-		Game.GetInstance ().player.wait (1.0f);
-		generateTreasureLoot();
-		soundLoot();
+		if (!is_destroyable) {
+			is_destroyable = false;
+			Game.GetInstance ().player.wait (1.0f);
+			generateTreasureLoot();
+			soundLoot();
+		}
 	}
 
 	public override bool destroyable(){
