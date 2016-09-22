@@ -449,6 +449,16 @@ public class Player : MonoBehaviour
 		wait (0.5f);
 	}
 
+	public void askTop() {
+		SoundManager.instance.PlaySingle("techo");
+		wait (0.5f);
+	}
+
+	public void askBottom() {
+		SoundManager.instance.PlaySingle("piso");
+		wait (0.5f);
+	}
+
 	public Vector2 rightPosition(){
 		int rightDir = (currentDir + 1) % 4;
 		return position + directions [rightDir];
@@ -496,11 +506,13 @@ public class Player : MonoBehaviour
 	}
 
 	public void touchOver() {
-		SoundManager.instance.PlaySingle ("Horse-nay");
+		SoundManager.instance.PlaySingle ("crashWall");
+		wait (0.5f);
 	}
 
 	public void touchBottom()  {
-		SoundManager.instance.PlaySingle ("Horse-nay");
+		SoundManager.instance.PlaySingle ("crashWall");
+		wait (0.5f);
 	}
 
 	public int getGeomLevel(){
@@ -515,7 +527,6 @@ public class Player : MonoBehaviour
 		geomLevel = geomLevel + 1;
 	}
 
-	// TODO : Documentar
 	public void askOrientation(){
 		wait (1);
 		switch (currentDir) {

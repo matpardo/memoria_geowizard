@@ -76,6 +76,12 @@ public class JoystickMovementController : PlayerMovementController
 			else if(downEvent()) {
 				player.askBehind();
 			}
+			else if (topEvent()) {
+				player.askTop();
+			} 
+			else if(bottomEvent()) {
+				player.askBottom();
+			}
 			return;
 		}
 		// Al presionar B
