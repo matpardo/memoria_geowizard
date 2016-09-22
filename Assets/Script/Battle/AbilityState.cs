@@ -1,12 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
+// public enum AbilityState {
+
+// 	AGUA,
+// 	TIERRA,
+// 	FUEGO,
+// 	VIENTO,
+// 	NATURALEZA, 
+// 	ARCANO
+// };
+
 public enum AbilityState {
 
-	AGUA,
-	TIERRA,
-	FUEGO,
+	ARCANO,
 	VIENTO,
-	NATURALEZA, 
-	ARCANO
+	NATURALEZA,
+	AGUA,
+	TIERRA, 
+	FUEGO
 };

@@ -44,12 +44,15 @@ public class Battle : MonoBehaviour {
     GamePadState state;
     GamePadState prevState;
 
-    // private int[] secuencia;
-    // private int contador_secuencia;
+    private int[] secuencia;
+    private int contador_secuencia;
+    private int element_numbers;
 
     void Start(){
 
 		lastSelectedFace = 0;
+
+		initiar_secuencias();
 
 		wasDeathSfxPlayed = false;
 		wasActionSfxPlayed = false;
@@ -156,12 +159,44 @@ public class Battle : MonoBehaviour {
 
         int baseDamage, finalDamage;
 		double multiplier;
+		int actual_element_number;
+		switch (currentAbility) {
+			case AbilityState.AGUA:
+				actual_element_number = 0;
+				break;
+			case AbilityState.TIERRA:
+				actual_element_number = 1;
+				break;
+			case AbilityState.FUEGO:
+				actual_element_number = 2;
+				break;
+			case AbilityState.VIENTO:
+				actual_element_number = 3;
+				break;
+			case AbilityState.NATURALEZA:
+				actual_element_number = 4;
+				break;
+			case AbilityState.ARCANO:
+				actual_element_number = 5;
+				break;
+			default:
+				actual_element_number = 6;
+				break;
+		}
 
 		baseDamage = player.getBaseDamage(currentAbility);
 
 		multiplier = enemy.getMultiplier(currentAbility);
 
+		if (!perform_attack(actual_element_number)){
+			// return -1;
+		}
+
 		finalDamage = (int)System.Math.Floor(baseDamage * multiplier);
+
+		if (finalDamage <= 0) {
+			finalDamage = 1;
+		}
 
         return finalDamage;
     }
@@ -280,6 +315,8 @@ public class Battle : MonoBehaviour {
 		}
 		else if(askCurrentAbility()){
 			audioClip = "current_ability_" + currentAbility.ToString().ToLower();
+		} else if (askSecuence()) {
+			elemento_secuencia();
 		}
 
 		if(!audioClip.Equals(""))
@@ -315,7 +352,11 @@ public class Battle : MonoBehaviour {
 				int dmg = calculateDamage();
 				enemy.removeHP (dmg);
 
-				if(dmg <= 0){
+				if (dmg < 0) {
+					extraPlayerSoundsNeeded = true;
+					atkSuffix = "error";
+				}
+				else if(dmg == 0){
 					extraPlayerSoundsNeeded = true;
 					atkSuffix = "immune";
 				}
@@ -399,7 +440,7 @@ public class Battle : MonoBehaviour {
 						break;
 					case(EnemyAction.CONFUSE_PLAYER):
 						Debug.Log("confuse player");
-						rotateCube((Rotation)ret.values[0]);
+						// rotateCube((Rotation)ret.values[0]);
 						enemyAtkSfx = "";
 						enemyAtkSpeech = "enemy_rotate_" + ret.values[0].ToString().ToLower();
 						break;
@@ -528,5 +569,56 @@ public class Battle : MonoBehaviour {
 
 	protected bool askEnemy() {
 		return (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed);
+	}
+
+	protected void initiar_secuencias() {
+		element_numbers = 4;
+		secuencia = new int[element_numbers];
+    	contador_secuencia = 0;
+
+    	for (int i = 0; i < element_numbers; i++) {
+    		secuencia[i] = UnityEngine.Random.Range(0,7); // numeros aleatorios del 0 al 6, 7 es any
+    	}
+	}
+
+	protected void elemento_secuencia() {
+		switch (contador_secuencia) {
+			case 0:
+				SoundManager.instance.PlaySingle ("face_arcane");
+				break;
+			case 1:
+				SoundManager.instance.PlaySingle ("face_wind");
+				break;
+			case 2:
+				SoundManager.instance.PlaySingle ("face_nature");
+				break;
+			case 3:
+				SoundManager.instance.PlaySingle ("face_water");
+				break;
+			case 4:
+				SoundManager.instance.PlaySingle ("face_earth");
+				break;
+			case 5:
+				SoundManager.instance.PlaySingle ("face_fire");
+				break;
+			case 6:
+				SoundManager.instance.PlaySingle ("face_any");
+				break;
+			default:
+				SoundManager.instance.PlaySingle ("Horse-nay");
+				break;
+		}
+	}
+
+	protected bool perform_attack(int face_number) {
+		if (face_number == secuencia[contador_secuencia] || (secuencia[contador_secuencia] == 6)) {
+			contador_secuencia++;
+			if (contador_secuencia == element_numbers) {
+				contador_secuencia = 0;
+			}
+			return true;
+		} else {
+			return  false;
+		}
 	}
 }
