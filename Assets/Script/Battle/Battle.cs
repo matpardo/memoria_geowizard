@@ -212,6 +212,9 @@ public class Battle : MonoBehaviour {
 			currentPhase = TurnPhase.CONFIRMATION;
 		} else if (askFaces()) {
 			SoundManager.instance.PlaySingle("Cubo_pelea");
+		} else if (askEnemy()) {
+			// SoundManager.instance.PlaySingle("tu_enemigo_es");
+			SoundManager.instance.PlaySingle("un_goblin");
 		}
 	}
 
