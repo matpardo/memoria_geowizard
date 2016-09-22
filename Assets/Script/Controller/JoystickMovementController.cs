@@ -43,6 +43,38 @@ public class JoystickMovementController : PlayerMovementController
         }
     }
 
+    protected void tryToSolveRiddle() {
+    	prevState = state;
+        state = GamePad.GetState(playerIndex);
+
+        if (player.state == PlayerState.ON_RIDDLE) {
+        	if (state.Buttons.A == ButtonState.Pressed) {
+        		player.sayRiddle();
+        	}
+        	else if (state.Buttons.Y == ButtonState.Pressed) {
+				if(upEvent()) {
+					player.solveRiddle(4);
+				}
+				else if(rightEvent()) {
+					player.solveRiddle(3);
+				}
+				else if(leftEvent()) {
+					player.solveRiddle(1);
+				} 
+				else if(downEvent()) {
+					player.solveRiddle(5);
+				} 
+				else if (topEvent()) {
+					player.solveRiddle(0);
+				} 
+				else if(bottomEvent()) {
+					player.solveRiddle(2);
+				}
+				return;
+				}
+        }
+    }
+
     protected override void getMovement()
     {
         prevState = state;
@@ -50,6 +82,9 @@ public class JoystickMovementController : PlayerMovementController
 
         if (player.state == PlayerState.ON_TREASURE) {
         	tryToGetLoot();
+        	return;
+        } else if (player.state == PlayerState.ON_RIDDLE) {
+        	tryToSolveRiddle();
         	return;
         }
         // AL presionar A
