@@ -44,6 +44,9 @@ public class Battle : MonoBehaviour {
     GamePadState state;
     GamePadState prevState;
 
+    // private int[] secuencia;
+    // private int contador_secuencia;
+
     void Start(){
 
 		lastSelectedFace = 0;
