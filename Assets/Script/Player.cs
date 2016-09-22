@@ -391,7 +391,7 @@ public class Player : MonoBehaviour
 	}
 
 	private void noStaffAlert(){
-		wait (8);
+		wait (7);
 		SoundManager.instance.PlaySingle ("sostener-baston");
 		Invoke ("ayudaBaston", 4);
 	}
