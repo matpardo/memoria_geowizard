@@ -87,15 +87,6 @@ public class TreasureEntity : SignalEntity
 	public void getLoot() {
 		Game.GetInstance ().player.wait (1.5f);
 
-		// AbilityState[] listAbilityPool = new AbilityState[]{
-		// 	AbilityState.AGUA,
-		// 	AbilityState.TIERRA,
-		// 	AbilityState.FUEGO,
-		// 	AbilityState.VIENTO,
-		// 	AbilityState.NATURALEZA,
-		// 	AbilityState.ARCANO
-		// };
-
 		AbilityState[] listAbilityPool = new AbilityState[]{
 			AbilityState.ARCANO,
 			AbilityState.VIENTO,
