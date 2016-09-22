@@ -19,6 +19,11 @@ public class JoystickMovementController : PlayerMovementController
         state = GamePad.GetState(playerIndex);
         
     	if (player.state == PlayerState.ON_TREASURE) {
+    		if (state.Buttons.X == ButtonState.Pressed) {
+        		player.wait(11.5f);
+				SoundManager.instance.PlaySingle ("Cubo_pelea");
+				return;
+        	} else
         	if (state.Buttons.Y == ButtonState.Pressed) {
 				if(upEvent()) {
 					player.getTreasure(4);
@@ -50,6 +55,11 @@ public class JoystickMovementController : PlayerMovementController
         if (player.state == PlayerState.ON_RIDDLE) {
         	if (state.Buttons.A == ButtonState.Pressed) {
         		player.sayRiddle();
+        		return;
+        	} else if (state.Buttons.X == ButtonState.Pressed) {
+        		player.wait(11.5f);
+				SoundManager.instance.PlaySingle ("Cubo_pelea");
+				return;
         	}
         	else if (state.Buttons.Y == ButtonState.Pressed) {
 				if(upEvent()) {
