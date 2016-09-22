@@ -74,7 +74,6 @@ public class TreasureEntity : SignalEntity
 
 	public void generateTreasureLoot(){
 		loot_position = Random.Range(0,6); // A number between 0 and 5
-		loot_position = 3;
 		Game.GetInstance ().player.setTreasure(this);
 	}
 
