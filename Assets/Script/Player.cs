@@ -493,11 +493,11 @@ public class Player : MonoBehaviour
 	}
 
 	public void touchOver() {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		SoundManager.instance.PlaySingle ("Horse-nay");
 	}
 
 	public void touchBottom()  {
-		// SoundManager.instance.PlaySingle ("Horse-nay");
+		SoundManager.instance.PlaySingle ("Horse-nay");
 	}
 
 	public int getGeomLevel(){

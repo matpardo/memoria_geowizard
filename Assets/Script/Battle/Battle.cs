@@ -204,24 +204,27 @@ public class Battle : MonoBehaviour {
 	}
 
 	private void selection(){
-		if(endTurn())
-			currentPhase = TurnPhase.ENDING;
-		else if(playerAttack())
+		if(askSecuence()) {
+			// currentPhase = TurnPhase.ENDING;
+			// TODO : Ask Caras del cubo
+		}
+		else if(playerAttack()) {
 			currentPhase = TurnPhase.CONFIRMATION;
+		}
 	}
 
 	private void selectFace(){
 		bool wasButtonPressed = false;
 
-		if(aheadEvent()){
-			currentAbility = abilities[4];
+		if(topEvent()){
+			currentAbility = abilities[0];
 			wasButtonPressed = true;
-			lastSelectedFace = 4;
+			lastSelectedFace = 0;
 		}
-		if(backEvent()){
-			currentAbility = abilities[5];
+		if(bottomEvent()){
+			currentAbility = abilities[2];
 			wasButtonPressed = true;
-			lastSelectedFace = 5;
+			lastSelectedFace = 2;
 		}
 		if(leftEvent()){
 			currentAbility = abilities[1];
@@ -234,14 +237,14 @@ public class Battle : MonoBehaviour {
 			lastSelectedFace = 3;
 		}
 		if(frontEvent()){
-			currentAbility = abilities[0];
+			currentAbility = abilities[4];
 			wasButtonPressed = true;
-			lastSelectedFace = 0;
+			lastSelectedFace = 4;
 		}
 		if(behindEvent()){
-			currentAbility = abilities[2];
+			currentAbility = abilities[5];
 			wasButtonPressed = true;
-			lastSelectedFace = 2;
+			lastSelectedFace = 5;
 		}
 
 		if(wasButtonPressed){
@@ -251,7 +254,7 @@ public class Battle : MonoBehaviour {
 	}
 
 	private void rotate(){
-		if(leftEvent() || rightEvent() || aheadEvent() || backEvent()){
+		if(leftEvent() || rightEvent() || topEvent() || bottomEvent()){
 			rotateCube(currentRotation);
 			string clip = soundMap.getSelectionClip(currentAbility);
 			SoundManager.instance.PlaySingle(clip);
@@ -460,30 +463,38 @@ public class Battle : MonoBehaviour {
 		return Input.GetKeyUp (KeyCode.RightArrow) || (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed);
 	}
 	
-	protected bool aheadEvent(){
+	protected bool topEvent(){
+		// currentRotation = Rotation.UP;
+		// return Input.GetKeyUp (KeyCode.UpArrow) || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
+		return (prevState.Buttons.LeftShoulder== ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed);
+	}
+
+	protected bool bottomEvent(){
+		// currentRotation = Rotation.DOWN;
+		// return Input.GetKeyUp (KeyCode.DownArrow) || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
+		return Input.GetKeyUp(KeyCode.U) || (prevState.Triggers.Left >0);
+	}
+
+	protected bool frontEvent(){
+		// return Input.GetKeyUp (KeyCode.RightControl) || (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.UP;
 		return Input.GetKeyUp (KeyCode.UpArrow) || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
 	}
 
-	protected bool backEvent(){
+	protected bool behindEvent(){
+		// return Input.GetKeyUp (KeyCode.RightShift) || (prevState.Buttons.LeftShoulder== ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.DOWN;
 		return Input.GetKeyUp (KeyCode.DownArrow) || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
 	}
 
-	protected bool frontEvent(){
-		return Input.GetKeyUp (KeyCode.RightControl) || (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed);
-	}
-
-	protected bool behindEvent(){
-		return Input.GetKeyUp (KeyCode.RightShift) || (prevState.Buttons.LeftShoulder== ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed);
-	}
-
 	protected bool instakill(){
-		return Input.GetKeyUp(KeyCode.Q) || (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed);
+		// return Input.GetKeyUp(KeyCode.Q) || (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed);
+		return Input.GetKeyUp(KeyCode.Q);
 	}
 
     protected bool askMyHP(){
-        return Input.GetKeyUp(KeyCode.U) || (prevState.Triggers.Left >0);
+        // return Input.GetKeyUp(KeyCode.U) || (prevState.Triggers.Left >0);
+        return (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed);
     }
 
     protected bool askEnemyHP(){
@@ -491,14 +502,23 @@ public class Battle : MonoBehaviour {
     }
 
 	protected bool askCurrentAbility(){
+		// return Input.GetKeyUp (KeyCode.O) || (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed);
+		return false;
+	}
+
+	protected bool askFaces() {
 		return Input.GetKeyUp (KeyCode.O) || (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed);
 	}
 
     protected bool playerAttack(){
-		return Input.GetKeyUp (KeyCode.J) || (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.J) || (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed);
 	}
 	
-	protected bool endTurn(){
+	protected bool askSecuence(){
 		return Input.GetKeyUp (KeyCode.K) || (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed);
+	}
+
+	protected bool askEnemy() {
+		return (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed);
 	}
 }
