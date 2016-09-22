@@ -17,5 +17,7 @@ public abstract class PlayerMovementController : PlayerController
 	}
 
 	protected abstract void getMovement();
+
+	protected abstract void tryToGetLoot();
 }
 

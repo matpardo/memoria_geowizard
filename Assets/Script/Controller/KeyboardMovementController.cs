@@ -11,8 +11,14 @@ public class KeyboardMovementController : PlayerMovementController
 
 
 {
+
+	protected override void tryToGetLoot() {
+		return;
+	}
+
     protected override void getMovement()
     {
+    	return;
 		if (Input.GetKey (KeyCode.Space)) {
 			if (player.state == PlayerState.NO_STAFF) {
 				player.pickStaff ();
