@@ -535,6 +535,7 @@ public class Player : MonoBehaviour
 	}
 
 	public void setTreasure(TreasureEntity treasure) {
+		lastState = state;
 		state = PlayerState.ON_TREASURE;
 		actual_treasure = treasure;
 	}
@@ -543,11 +544,13 @@ public class Player : MonoBehaviour
 		if (actual_treasure) {
 			wait (0.5f);
 			if (actual_treasure.isPositionTreasure(position)) {
-				// actual_treasure.getLoot();
-				// actual_treasure = null;
-				// state = PlayerState.WAITING;
-				SoundManager.instance.PlaySingle ("Horse-nay");
+				actual_treasure.getLoot();
+				actual_treasure.makeDestroyable();
+				actual_treasure = null;
+				state = PlayerState.STOPPED;
 			}
+		} else {
+			SoundManager.instance.PlaySingle ("Horse-nay");
 		}
 	}
 }

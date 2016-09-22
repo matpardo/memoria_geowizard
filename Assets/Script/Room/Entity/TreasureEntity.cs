@@ -4,6 +4,7 @@ using System.Collections;
 public class TreasureEntity : SignalEntity
 {
 	private int loot_position;
+	private bool is_destroyable;
 
 	protected void Awake(){
 		source  = "item_pickup";
@@ -13,13 +14,14 @@ public class TreasureEntity : SignalEntity
 		// base.handleCollision ();
 		// Game.GetInstance ().player.wait (1.5f);
 		// Invoke ("generateTreasureRandomLootBoost", 1);
+		is_destroyable = false;
 		Game.GetInstance ().player.wait (1.0f);
 		generateTreasureLoot();
 		soundLoot();
 	}
 
 	public override bool destroyable(){
-		return true;
+		return is_destroyable;
 	}
 
 	public override void ask ()
@@ -128,8 +130,6 @@ public class TreasureEntity : SignalEntity
 		default:
 			break;
 		}
-		// base.handleCollision ();
-
 	}
 
 	public void soundLoot() {
@@ -153,9 +153,13 @@ public class TreasureEntity : SignalEntity
 				SoundManager.instance.PlaySingle ("fire_select");
 				break;
 			default:
-				SoundManager.instance.PlaySingle ("Horse-nay");
+				// SoundManager.instance.PlaySingle ("Horse-nay");
 				break;
 		}
+	}
+
+	public void makeDestroyable() {
+		is_destroyable = true;
 	}
 }
 
