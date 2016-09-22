@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	private int hp;
 	private int boostsToLevelUp;
 	private bool ableToMove;
+	private TreasureEntity actual_treasure;
 
 	/// <summary>
 	/// The actual geometric room level
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
 			AbilityState.FUEGO
 		};
 
-
+		actual_treasure = null;
 
 		boostsToLevelUp = 3;
 
@@ -150,11 +151,13 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (state == PlayerState.STOPPED)
+		if (state == PlayerState.STOPPED) {
 			return;
+		}
 		if (state == PlayerState.MOVING) {
 			updatePosition ();
-		} else if (state == PlayerState.TURNING) {
+		}
+		else if (state == PlayerState.TURNING) {
 			updateRotation ();
 		} else if (state == PlayerState.WAITING) {
 			waitTime -= Time.deltaTime;
@@ -528,6 +531,28 @@ public class Player : MonoBehaviour
 		default:
 			{SoundManager.instance.PlaySingle ("oeste");
 			return;}
+		}
+	}
+
+	public void setTreasure(TreasureEntity treasure) {
+		lastState = state;
+		state = PlayerState.ON_TREASURE;
+		actual_treasure = treasure;
+	}
+
+	public void getTreasure(int position) {
+		if (actual_treasure) {
+			wait (0.5f);
+			if (actual_treasure.isPositionTreasure(position)) {
+				actual_treasure.getLoot();
+				actual_treasure.makeDestroyable();
+				Destroy(actual_treasure.gameObject);
+				actual_treasure = null;
+				state = PlayerState.STOPPED;
+				wait (5);
+			}
+		} else {
+			SoundManager.instance.PlaySingle ("Horse-nay");
 		}
 	}
 }

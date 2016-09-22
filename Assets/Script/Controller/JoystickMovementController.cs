@@ -14,25 +14,44 @@ public class JoystickMovementController : PlayerMovementController
     GamePadState state;
     GamePadState prevState;
 
+    protected override void tryToGetLoot() {
+    	prevState = state;
+        state = GamePad.GetState(playerIndex);
+        
+    	if (player.state == PlayerState.ON_TREASURE) {
+        	if (state.Buttons.Y == ButtonState.Pressed) {
+				if(upEvent()) {
+					player.getTreasure(4);
+				}
+				else if(rightEvent()) {
+					player.getTreasure(3);
+				}
+				else if(leftEvent()) {
+					player.getTreasure(1);
+				} 
+				else if(downEvent()) {
+					player.getTreasure(5);
+				} 
+				else if (topEvent()) {
+					player.getTreasure(0);
+				} 
+				else if(bottomEvent()) {
+					player.getTreasure(2);
+				}
+				return;
+				}
+        }
+    }
 
     protected override void getMovement()
     {
         prevState = state;
         state = GamePad.GetState(playerIndex);
-        /*
-        if ((prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)|| (prevState.Buttons.X == ButtonState.Pressed && state.Buttons.X == ButtonState.Pressed))
-        {
-            player.turnLeft();
+
+        if (player.state == PlayerState.ON_TREASURE) {
+        	tryToGetLoot();
+        	return;
         }
-        if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
-        {
-            player.turnRight();
-        }
-        if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)
-        {
-            player.move();
-        }
-        */
         // AL presionar A
 		if (state.Buttons.A == ButtonState.Pressed) {
 
@@ -71,34 +90,29 @@ public class JoystickMovementController : PlayerMovementController
 		}
 		// Al presionar Y
 		else if (state.Buttons.Y == ButtonState.Pressed) {
-			// TODO : Tocar, si en tesoro obtener dependiendo de tesoro
-			if (false) {
-
-				} else {
-					if(player.state != PlayerState.STOPPED) {
-						return;
-					}
-					// Toques normales
-					if(upEvent()) {
-						player.touchAhead();
-					}
-					else if(rightEvent()) {
-						player.touchRight();
-					}
-					else if(leftEvent()) {
-						player.touchLeft();
-					} 
-					else if(downEvent()) {
-						player.touchBehind();
-					} 
-					else if (topEvent()) {
-						player.touchOver();
-					} 
-					else if(bottomEvent()) {
-						player.touchBottom();
-					}
-					return;
-				}
+			if(player.state != PlayerState.STOPPED) {
+				return;
+			}
+			// Toques normales
+			if(upEvent()) {
+				player.touchAhead();
+			}
+			else if(rightEvent()) {
+				player.touchRight();
+			}
+			else if(leftEvent()) {
+				player.touchLeft();
+			} 
+			else if(downEvent()) {
+				player.touchBehind();
+			} 
+			else if (topEvent()) {
+				player.touchOver();
+			} 
+			else if(bottomEvent()) {
+				player.touchBottom();
+			}
+			return;
 		} 
 		// Al presionar X
 		else if (state.Buttons.X == ButtonState.Pressed) {
