@@ -76,6 +76,12 @@ public class JoystickMovementController : PlayerMovementController
 			else if(downEvent()) {
 				player.askBehind();
 			}
+			else if (topEvent()) {
+				player.askTop();
+			} 
+			else if(bottomEvent()) {
+				player.askBottom();
+			}
 			return;
 		}
 		// Al presionar B
@@ -116,8 +122,8 @@ public class JoystickMovementController : PlayerMovementController
 		} 
 		// Al presionar X
 		else if (state.Buttons.X == ButtonState.Pressed) {
-			// TODO : Reproducir ayuda cubo
-			player.wait(14);
+			// Reproducir ayuda cubo
+			player.wait(11.5f);
 			SoundManager.instance.PlaySingle ("Cubo_laberinto");
 		}
 		// Moverse en direcciones

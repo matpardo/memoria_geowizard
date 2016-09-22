@@ -173,7 +173,7 @@ public class Room
 
 	public void touch(Vector2 pos) {
 		if (!isInside (pos) || (isInside (pos) && !walkableCell(pos)))
-			SoundManager.instance.PlaySingle ("crashWall");
+			SoundManager.instance.PlaySingle ("small_stone");
 		else if (getEntityAt (pos) != null) {
 			getEntityAt (pos).touch ();
 		}

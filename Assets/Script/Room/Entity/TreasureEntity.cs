@@ -16,9 +16,11 @@ public class TreasureEntity : SignalEntity
 		// Invoke ("generateTreasureRandomLootBoost", 1);
 		if (!is_destroyable) {
 			is_destroyable = false;
-			Game.GetInstance ().player.wait (1.0f);
+			Game.GetInstance ().player.wait (1);
 			generateTreasureLoot();
-			soundLoot();
+			// soundLoot();
+			Game.GetInstance ().player.wait (4);
+			SoundManager.instance.PlaySingle ("find_treasure");
 		}
 	}
 
