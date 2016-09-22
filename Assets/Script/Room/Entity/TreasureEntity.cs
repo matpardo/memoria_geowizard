@@ -70,6 +70,7 @@ public class TreasureEntity : SignalEntity
 
 	public void generateTreasureLoot(){
 		loot_position = Random.Range(0,6); // A number between 0 and 5
+		loot_position = 3;
 		Game.GetInstance ().player.setTreasure(this);
 	}
 
@@ -84,13 +85,22 @@ public class TreasureEntity : SignalEntity
 	public void getLoot() {
 		Game.GetInstance ().player.wait (1.5f);
 
+		// AbilityState[] listAbilityPool = new AbilityState[]{
+		// 	AbilityState.AGUA,
+		// 	AbilityState.TIERRA,
+		// 	AbilityState.FUEGO,
+		// 	AbilityState.VIENTO,
+		// 	AbilityState.NATURALEZA,
+		// 	AbilityState.ARCANO
+		// };
+
 		AbilityState[] listAbilityPool = new AbilityState[]{
-			AbilityState.AGUA,
-			AbilityState.TIERRA,
-			AbilityState.FUEGO,
+			AbilityState.ARCANO,
 			AbilityState.VIENTO,
 			AbilityState.NATURALEZA,
-			AbilityState.ARCANO
+			AbilityState.AGUA,
+			AbilityState.TIERRA,
+			AbilityState.FUEGO
 		};
 
 		Game.GetInstance ().player.addBoost (listAbilityPool[loot_position], 4);
@@ -118,7 +128,7 @@ public class TreasureEntity : SignalEntity
 		default:
 			break;
 		}
-		base.handleCollision ();
+		// base.handleCollision ();
 
 	}
 

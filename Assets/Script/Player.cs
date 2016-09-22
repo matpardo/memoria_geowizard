@@ -543,16 +543,11 @@ public class Player : MonoBehaviour
 		if (actual_treasure) {
 			wait (0.5f);
 			if (actual_treasure.isPositionTreasure(position)) {
-				actual_treasure.getLoot();
-				actual_treasure = null;
-				state = PlayerState.WAITING;
+				// actual_treasure.getLoot();
+				// actual_treasure = null;
+				// state = PlayerState.WAITING;
+				SoundManager.instance.PlaySingle ("Horse-nay");
 			}
-		}
-	}
-
-	public void hearTreasure() {
-		if (actual_treasure) {
-			actual_treasure.soundLoot();
 		}
 	}
 }
