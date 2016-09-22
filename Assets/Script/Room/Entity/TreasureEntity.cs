@@ -147,7 +147,7 @@ public class TreasureEntity : SignalEntity
 				SoundManager.instance.PlaySingle ("fire_select");
 				break;
 			default:
-				// SoundManager.instance.PlaySingle ("Horse-nay");
+				SoundManager.instance.PlaySingle ("Horse-nay");
 				break;
 		}
 	}

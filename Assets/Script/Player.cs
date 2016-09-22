@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	private int boostsToLevelUp;
 	private bool ableToMove;
 	private TreasureEntity actual_treasure;
+	private WarpEntity actual_riddle;
 
 	/// <summary>
 	/// The actual geometric room level
@@ -551,6 +552,12 @@ public class Player : MonoBehaviour
 		actual_treasure = treasure;
 	}
 
+	public void setRiddle(WarpEntity riddle) {
+		lastState = state;
+		state = PlayerState.ON_RIDDLE;
+		actual_riddle = riddle;
+	}
+
 	public void getTreasure(int position) {
 		if (actual_treasure) {
 			wait (0.5f);
@@ -561,6 +568,30 @@ public class Player : MonoBehaviour
 				actual_treasure = null;
 				state = PlayerState.STOPPED;
 				wait (6);
+			}
+		} else {
+			SoundManager.instance.PlaySingle ("Horse-nay");
+		}
+	}
+
+	public void sayRiddle() {
+		if (actual_riddle) {
+			wait (5);
+			actual_riddle.sayRiddle();
+		} else {
+			SoundManager.instance.PlaySingle ("Horse-nay");
+		}
+	}
+
+	public void solveRiddle(int answer) {
+		if (actual_riddle) {
+			wait (0.5f);
+			if (actual_riddle.isAnswerToRiddle(answer)) {
+				actual_riddle.makeDestroyable();
+				Destroy(actual_riddle.gameObject);
+				actual_riddle = null;
+				state = PlayerState.STOPPED;
+				wait(1);
 			}
 		} else {
 			SoundManager.instance.PlaySingle ("Horse-nay");
