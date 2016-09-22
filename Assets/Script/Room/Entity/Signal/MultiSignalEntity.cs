@@ -54,8 +54,22 @@ public class MultiSignalEntity : RoomEntity
 		Invoke ("rightSound", delta);
 	}
 	
-	private void leftSound(){SoundManager.instance.PlayDirectionalSingle ("pew-left", -1f);}
-	private void rightSound(){SoundManager.instance.PlayDirectionalSingle ("pew-right", 1f);}
-	private void bothSound(){SoundManager.instance.PlayDirectionalSingle ("pew", 0f);}
+	private void leftSound(){
+		Player player = Game.GetInstance ().player;
+		// SoundManager.instance.PlayDirectionalSingle ("pew-left", -1f);
+		player.doLeftSound();
+	}
+
+	private void rightSound(){
+		Player player = Game.GetInstance ().player;
+		// SoundManager.instance.PlayDirectionalSingle ("pew-right", 1f);
+		player.doRightSound();
+	}
+
+	private void bothSound(){
+		Player player = Game.GetInstance ().player;
+		// SoundManager.instance.PlayDirectionalSingle ("pew", 0f);
+		player.doFrontSound();
+	}
 }
 
