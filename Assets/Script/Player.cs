@@ -557,15 +557,57 @@ public class Player : MonoBehaviour
 	}
 
 	public void doLeftSound() {
-		SoundManager.instance.PlayDirectionalSingle ("pew-left", -1f);
+		// SoundManager.instance.PlayDirectionalSingle ("pew-left", -1f);
+		switch (currentDir) {
+		case 0:
+			{SoundManager.instance.PlayDirectionalSingle ("wind_select", -1f);
+			return;}
+		case 1:
+			{SoundManager.instance.PlayDirectionalSingle ("earth_select", -1f);
+			return;}
+		case 2:
+			{SoundManager.instance.PlayDirectionalSingle ("water_select", -1f);
+			return;}
+		default:
+			{SoundManager.instance.PlayDirectionalSingle ("fire_select", -1f);
+			return;}
+		}
 	}
 
 	public void doRightSound() {
-		SoundManager.instance.PlayDirectionalSingle ("pew-right", 1f);
+		// SoundManager.instance.PlayDirectionalSingle ("pew-right", 1f);
+		switch (currentDir) {
+		case 0:
+			{SoundManager.instance.PlayDirectionalSingle ("water_select", 1f);
+			return;}
+		case 1:
+			{SoundManager.instance.PlayDirectionalSingle ("fire_select", 1f);
+			return;}
+		case 2:
+			{SoundManager.instance.PlayDirectionalSingle ("wind_select", 1f);
+			return;}
+		default:
+			{SoundManager.instance.PlayDirectionalSingle ("earth_select", 1f);
+			return;}
+		}
 	}
 
 	public void doFrontSound() {
-		SoundManager.instance.PlayDirectionalSingle ("pew", 0f);
+		// SoundManager.instance.PlayDirectionalSingle ("pew", 0f);
+		switch (currentDir) {
+		case 0:
+			{SoundManager.instance.PlayDirectionalSingle ("earth_select", 0f);
+			return;}
+		case 1:
+			{SoundManager.instance.PlayDirectionalSingle ("water_select", 0f);
+			return;}
+		case 2:
+			{SoundManager.instance.PlayDirectionalSingle ("fire_select", 0f);
+			return;}
+		default:
+			{SoundManager.instance.PlayDirectionalSingle ("wind_select", 0f);
+			return;}
+		}
 	}
 }
 
