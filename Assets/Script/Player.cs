@@ -555,5 +555,17 @@ public class Player : MonoBehaviour
 			SoundManager.instance.PlaySingle ("Horse-nay");
 		}
 	}
+
+	public void doLeftSound() {
+		SoundManager.instance.PlayDirectionalSingle ("pew-left", -1f);
+	}
+
+	public void doRightSound() {
+		SoundManager.instance.PlayDirectionalSingle ("pew-right", 1f);
+	}
+
+	public void doFrontSound() {
+		SoundManager.instance.PlayDirectionalSingle ("pew", 0f);
+	}
 }
 
