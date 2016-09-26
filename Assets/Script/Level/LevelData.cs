@@ -177,9 +177,9 @@ public class LevelData
 					"###############",
 					"########D######",
 					"######## ######",
-					"#        ######",
+					"#   h    ######",
 					"# #############",
-					"# #############",
+					"#h#############",
 					"# #############",
 				};
 				levelData.startPosition = new Vector2(1, 8);
@@ -187,6 +187,9 @@ public class LevelData
 				//Doors
 				levelData.addOrientation(8, 3, Orientation.SOUTH);
 				levelData.addDoor(8, 3);
+				// help
+				levelData.addSound(1, 7, "ayuda-first-rotation", 16);
+				levelData.addSound(4, 5, "ayuda-touch-and-ask", 16);
 	            break;
 	        case 3:
 				levelData.hallData = new string[]{
@@ -197,7 +200,7 @@ public class LevelData
 					"########### ###",
 					"########### ###",
 					"######      ###",
-					"###### ########",
+					"######h########",
 					"###### ########",
 				};
 				levelData.startPosition = new Vector2(6, 8);
@@ -205,6 +208,8 @@ public class LevelData
 				//Doors
 				levelData.addOrientation(6, 0, Orientation.SOUTH);
 				levelData.addDoor(6, 0);
+				//help
+				levelData.addSound(6, 7, "continue", 6);
 	            break;
 
 	        case 4:
@@ -212,7 +217,7 @@ public class LevelData
 					"#D#############",
 					"# #############",
 					"# #############",
-					"#     l     ###",
+					"#       hlh ###",
 					"########### ###",
 					"########### ###",
 					"########### ###",
@@ -224,6 +229,9 @@ public class LevelData
 				//Doors
 				levelData.addOrientation(1, 0, Orientation.SOUTH);
 				levelData.addDoor(1, 0);
+				// Help
+				levelData.addSound(10, 3, "sonido-positivo", 5);
+				levelData.addSound(8, 3, "sonido-negativo", 5);
 	            break;
 
 	        case 5:
@@ -243,6 +251,8 @@ public class LevelData
 				//Doors
 				levelData.addOrientation(7, 0, Orientation.SOUTH);
 				levelData.addDoor(7, 0);
+				//help
+				levelData.addSound(1, 7, "ayuda-first-cubo", 17);
 	            break;
 	                    
 	        case 6:
