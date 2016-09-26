@@ -400,21 +400,24 @@ public class LevelData
 					"#######D#######",
 					"####### #######",
 					"####### #######",
-					"####### #######",
+					"#######h#######",
 					"#######M#######",
 					"####### #######",
 					"####### #######",
-					"####### #######",
+					"#######h#######",
 					"####### #######",
 				};
 				levelData.startPosition = new Vector2(7, 8);
 				/*Orientations*/
 				//Monsters
-				levelData.addOrientation(7, 4, Orientation.WEST);
+				levelData.addOrientation(7, 4, Orientation.SOUTH);
 				levelData.addMonster(7, 4);
 				//Doors
-				levelData.addOrientation(1, 0, Orientation.SOUTH);
-				levelData.addDoor(1, 0);
+				levelData.addOrientation(7, 0, Orientation.SOUTH);
+				levelData.addDoor(7, 0);
+				//help
+				levelData.addSound(7, 7, "last_battle_inc", 11);
+				levelData.addSound(7, 3, "final", 6);
 	            break;
             default:
 				break;
