@@ -158,7 +158,7 @@ public class LevelData
 					"# #############",
 					"# #############",
 					"# #############",
-					"# #############",
+					"#h#############",
 					"# #############",
 					"# #############",
 				};
@@ -167,6 +167,8 @@ public class LevelData
 				//Doors
 				levelData.addOrientation(1, 0, Orientation.SOUTH);
 				levelData.addDoor(1, 0);
+				// help
+				levelData.addSound(1, 6, "ayuda-brujula", 16);
 	            break;
 	        case 2:
 				levelData.hallData = new string[]{
