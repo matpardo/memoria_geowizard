@@ -574,6 +574,15 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	public void hearTreasure() {
+		if (actual_treasure) {
+			wait (0.5f);
+			actual_treasure.soundLoot();
+		} else {
+			SoundManager.instance.PlaySingle ("Horse-nay");
+		}
+	}
+
 	public void sayRiddle() {
 		if (actual_riddle) {
 			wait (5);

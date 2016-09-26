@@ -44,6 +44,9 @@ public class JoystickMovementController : PlayerMovementController
 					player.getTreasure(2);
 				}
 				return;
+				} else if (state.Buttons.A == ButtonState.Pressed || state.Buttons.B == ButtonState.Pressed) {
+					player.hearTreasure();
+					return;
 				}
         }
     }
