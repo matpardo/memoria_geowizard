@@ -91,9 +91,9 @@ public class WarpEntity : SignalEntity
 		}
 
 		if (correct) {
-			SoundManager.instance.PlaySingle ("correct");
+			SoundManager.instance.PlaySingle ("riddle_right");
 		} else {
-			SoundManager.instance.PlaySingle ("error");
+			SoundManager.instance.PlaySingle ("riddle_wrong");
 		}
 
 		return correct;
