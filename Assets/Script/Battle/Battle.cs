@@ -44,9 +44,15 @@ public class Battle : MonoBehaviour {
     GamePadState state;
     GamePadState prevState;
 
+    private int[] secuencia;
+    private int contador_secuencia;
+    private int element_numbers;
+
     void Start(){
 
 		lastSelectedFace = 0;
+
+		initiar_secuencias();
 
 		wasDeathSfxPlayed = false;
 		wasActionSfxPlayed = false;
@@ -153,12 +159,44 @@ public class Battle : MonoBehaviour {
 
         int baseDamage, finalDamage;
 		double multiplier;
+		int actual_element_number;
+		switch (currentAbility) {
+			case AbilityState.AGUA:
+				actual_element_number = 3;
+				break;
+			case AbilityState.TIERRA:
+				actual_element_number = 4;
+				break;
+			case AbilityState.FUEGO:
+				actual_element_number = 5;
+				break;
+			case AbilityState.VIENTO:
+				actual_element_number = 1;
+				break;
+			case AbilityState.NATURALEZA:
+				actual_element_number = 2;
+				break;
+			case AbilityState.ARCANO:
+				actual_element_number = 0;
+				break;
+			default:
+				actual_element_number = 6;
+				break;
+		}
 
 		baseDamage = player.getBaseDamage(currentAbility);
 
 		multiplier = enemy.getMultiplier(currentAbility);
 
+		if (!perform_attack(actual_element_number)){
+			return -1;
+		}
+
 		finalDamage = (int)System.Math.Floor(baseDamage * multiplier);
+
+		if (finalDamage <= 0) {
+			finalDamage = 1;
+		}
 
         return finalDamage;
     }
@@ -167,36 +205,40 @@ public class Battle : MonoBehaviour {
 	public void rotateCube(Rotation direction){
 		//orden: adelante 0, izq 1, atras 2, der 3, arriba 4, abajo 5
 
-		AbilityState aux = abilities[0];
+		AbilityState aux;
 
 		switch(direction){
 
 			case(Rotation.LEFT):
-				abilities[0] = abilities[3];
-				abilities[3] = abilities[2];
-				abilities[2] = abilities[1];
+				aux = abilities[4];
+				abilities[4] = abilities[3];
+				abilities[3] = abilities[5];
+				abilities[5] = abilities[1];
 				abilities[1] = aux;
 				break;
 
 			case(Rotation.RIGHT):
-				abilities[0] = abilities[1];
-				abilities[1] = abilities[2];
-				abilities[2] = abilities[3];
+				aux = abilities[4];
+				abilities[4] = abilities[1];
+				abilities[1] = abilities[5];
+				abilities[5] = abilities[3];
 				abilities[3] = aux;
 				break;
 
 			case(Rotation.UP):
-				abilities[0] = abilities[5];
-				abilities[5] = abilities[2];
-				abilities[2] = abilities[4];
-				abilities[4] = aux;
-				break;
-
-			case(Rotation.DOWN):
+				aux = abilities[0];
 				abilities[0] = abilities[4];
 				abilities[4] = abilities[2];
 				abilities[2] = abilities[5];
 				abilities[5] = aux;
+				break;
+
+			case(Rotation.DOWN):
+				aux = abilities[0];
+				abilities[0] = abilities[5];
+				abilities[5] = abilities[2];
+				abilities[2] = abilities[4];
+				abilities[4] = aux;
 				break;
 		}
 
@@ -277,6 +319,8 @@ public class Battle : MonoBehaviour {
 		}
 		else if(askCurrentAbility()){
 			audioClip = "current_ability_" + currentAbility.ToString().ToLower();
+		} else if (askSecuence()) {
+			elemento_secuencia();
 		}
 
 		if(!audioClip.Equals(""))
@@ -312,7 +356,11 @@ public class Battle : MonoBehaviour {
 				int dmg = calculateDamage();
 				enemy.removeHP (dmg);
 
-				if(dmg <= 0){
+				if (dmg < 0) {
+					extraPlayerSoundsNeeded = true;
+					atkSuffix = "error";
+				}
+				else if(dmg == 0){
 					extraPlayerSoundsNeeded = true;
 					atkSuffix = "immune";
 				}
@@ -460,12 +508,12 @@ public class Battle : MonoBehaviour {
 	
 	protected bool leftEvent(){
 		currentRotation = Rotation.LEFT;
-		return Input.GetKeyUp (KeyCode.LeftArrow) || (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.LeftArrow) || leftEventStick() || (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed);
 	}
 	
 	protected bool rightEvent(){
 		currentRotation = Rotation.RIGHT;
-		return Input.GetKeyUp (KeyCode.RightArrow) || (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.RightArrow) || rightEventStick() || (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed);
 	}
 	
 	protected bool topEvent(){
@@ -483,13 +531,13 @@ public class Battle : MonoBehaviour {
 	protected bool frontEvent(){
 		// return Input.GetKeyUp (KeyCode.RightControl) || (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.UP;
-		return Input.GetKeyUp (KeyCode.UpArrow) || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.UpArrow) || upEventStick() || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
 	}
 
 	protected bool behindEvent(){
 		// return Input.GetKeyUp (KeyCode.RightShift) || (prevState.Buttons.LeftShoulder== ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.DOWN;
-		return Input.GetKeyUp (KeyCode.DownArrow) || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.DownArrow) || downEventStick() || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
 	}
 
 	protected bool instakill(){
@@ -525,5 +573,80 @@ public class Battle : MonoBehaviour {
 
 	protected bool askEnemy() {
 		return (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed);
+	}
+
+	protected void initiar_secuencias() {
+		element_numbers = 4;
+		secuencia = new int[element_numbers];
+    	contador_secuencia = 0;
+
+    	for (int i = 0; i < element_numbers; i++) {
+    		secuencia[i] = UnityEngine.Random.Range(0,7); // numeros aleatorios del 0 al 6, 7 es any
+    	}
+	}
+
+	protected void elemento_secuencia() {
+		switch (secuencia[contador_secuencia]) {
+			case 0:
+				SoundManager.instance.PlaySingle ("face_arcane");
+				break;
+			case 1:
+				SoundManager.instance.PlaySingle ("face_wind");
+				break;
+			case 2:
+				SoundManager.instance.PlaySingle ("face_nature");
+				break;
+			case 3:
+				SoundManager.instance.PlaySingle ("face_water");
+				break;
+			case 4:
+				SoundManager.instance.PlaySingle ("face_earth");
+				break;
+			case 5:
+				SoundManager.instance.PlaySingle ("face_fire");
+				break;
+			case 6:
+				SoundManager.instance.PlaySingle ("face_any");
+				break;
+			default:
+				SoundManager.instance.PlaySingle ("Horse-nay");
+				break;
+		}
+	}
+
+	protected bool perform_attack(int face_number) {
+		if (face_number == secuencia[contador_secuencia] || (secuencia[contador_secuencia] == 6)) {
+			contador_secuencia++;
+			if (contador_secuencia == element_numbers) {
+				contador_secuencia = 0;
+			}
+			return true;
+		} else {
+			return  false;
+		}
+	}
+
+	private bool leftEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  x < 0 && Mathf.Abs(x)>Mathf.Abs(y);
+	}
+	
+	private bool rightEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  x > 0 && Mathf.Abs(x)>Mathf.Abs(y);
+	}
+	
+	private bool upEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  y > 0 && Mathf.Abs(y)>Mathf.Abs(x);
+	}
+	
+	private bool downEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  y < 0 && Mathf.Abs(y)>Mathf.Abs(x);
 	}
 }
