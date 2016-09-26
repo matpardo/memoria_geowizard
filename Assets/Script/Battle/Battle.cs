@@ -627,24 +627,28 @@ public class Battle : MonoBehaviour {
 	}
 
 	private bool leftEventStick(){
+		return false;
 		float x = state.ThumbSticks.Left.X;
 		float y = state.ThumbSticks.Left.Y;
 		return  x < 0 && Mathf.Abs(x)>Mathf.Abs(y);
 	}
 	
 	private bool rightEventStick(){
+		return false;
 		float x = state.ThumbSticks.Left.X;
 		float y = state.ThumbSticks.Left.Y;
 		return  x > 0 && Mathf.Abs(x)>Mathf.Abs(y);
 	}
 	
 	private bool upEventStick(){
+		return false;
 		float x = state.ThumbSticks.Left.X;
 		float y = state.ThumbSticks.Left.Y;
 		return  y > 0 && Mathf.Abs(y)>Mathf.Abs(x);
 	}
 	
 	private bool downEventStick(){
+		return false;
 		float x = state.ThumbSticks.Left.X;
 		float y = state.ThumbSticks.Left.Y;
 		return  y < 0 && Mathf.Abs(y)>Mathf.Abs(x);
