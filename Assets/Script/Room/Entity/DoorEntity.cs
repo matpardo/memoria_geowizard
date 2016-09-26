@@ -9,7 +9,7 @@ public class DoorEntity : SignalEntity
 	}
 
 	private void nextScene(){
-		ApplicationData.setLastLevel (1 +ApplicationData.getLastLevel () % 4);
+		ApplicationData.setLastLevel (1 +ApplicationData.getLastLevel () % 6);
 		SceneLoader.GetInstance ().cleanLoad ("LevelCompleted");
 	}
 
