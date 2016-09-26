@@ -15,7 +15,7 @@ public class ApplicationData
 	private static readonly string SCORE_KEY = "2";
 	private static readonly string GAME_SAVED = "3";
 	private static readonly string PLAYER_BOOST = "4";
-	private static readonly int MAX_LEVEL_INT = 6;
+	private static readonly int MAX_LEVEL_INT = 10;
 
 	public static void setLastLevel(int level){
 		PlayerPrefs.SetInt (LAST_LEVEL_KEY, level);
@@ -88,12 +88,12 @@ public class ApplicationData
 
 	public static void reset(){
 		AbilityState[] listAbilityPool = new AbilityState[]{
-			AbilityState.AGUA,
-			AbilityState.TIERRA,
-			AbilityState.FUEGO,
+			AbilityState.ARCANO,
 			AbilityState.VIENTO,
 			AbilityState.NATURALEZA,
-			AbilityState.ARCANO
+			AbilityState.AGUA,
+			AbilityState.TIERRA,
+			AbilityState.FUEGO
 		};
 
 		foreach (AbilityState state in listAbilityPool)
