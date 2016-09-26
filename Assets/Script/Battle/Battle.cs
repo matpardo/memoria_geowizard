@@ -205,36 +205,40 @@ public class Battle : MonoBehaviour {
 	public void rotateCube(Rotation direction){
 		//orden: adelante 0, izq 1, atras 2, der 3, arriba 4, abajo 5
 
-		AbilityState aux = abilities[0];
+		AbilityState aux;
 
 		switch(direction){
 
 			case(Rotation.LEFT):
-				abilities[0] = abilities[3];
-				abilities[3] = abilities[2];
-				abilities[2] = abilities[1];
+				aux = abilities[4];
+				abilities[4] = abilities[3];
+				abilities[3] = abilities[5];
+				abilities[5] = abilities[1];
 				abilities[1] = aux;
 				break;
 
 			case(Rotation.RIGHT):
-				abilities[0] = abilities[1];
-				abilities[1] = abilities[2];
-				abilities[2] = abilities[3];
+				aux = abilities[4];
+				abilities[4] = abilities[1];
+				abilities[1] = abilities[5];
+				abilities[5] = abilities[3];
 				abilities[3] = aux;
 				break;
 
 			case(Rotation.UP):
-				abilities[0] = abilities[5];
-				abilities[5] = abilities[2];
-				abilities[2] = abilities[4];
-				abilities[4] = aux;
-				break;
-
-			case(Rotation.DOWN):
+				aux = abilities[0];
 				abilities[0] = abilities[4];
 				abilities[4] = abilities[2];
 				abilities[2] = abilities[5];
 				abilities[5] = aux;
+				break;
+
+			case(Rotation.DOWN):
+				aux = abilities[0];
+				abilities[0] = abilities[5];
+				abilities[5] = abilities[2];
+				abilities[2] = abilities[4];
+				abilities[4] = aux;
 				break;
 		}
 

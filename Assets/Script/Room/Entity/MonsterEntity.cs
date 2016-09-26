@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class MonsterEntity : SignalEntity
 {
 
-	private int hp = 10;
+	private int hp = 5;
 	private int minDamage = 0;
 	private int maxDamage = 11;
 	private double damageMultiplier = 1.0;
