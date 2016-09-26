@@ -81,7 +81,7 @@ public class Battle : MonoBehaviour {
 		loader = SceneLoader.GetInstance();
 		SoundManager.instance.PlaySingle("Monster");
 
-        if (ApplicationData.getLastLevel() == 2)
+        if (ApplicationData.getLastLevel() == 8)
         {
             SoundManager.instance.PlaySingle("instrucciones_batalla");
 
