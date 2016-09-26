@@ -15,6 +15,7 @@ public class ApplicationData
 	private static readonly string SCORE_KEY = "2";
 	private static readonly string GAME_SAVED = "3";
 	private static readonly string PLAYER_BOOST = "4";
+	private static readonly int MAX_LEVEL_INT = 6;
 
 	public static void setLastLevel(int level){
 		PlayerPrefs.SetInt (LAST_LEVEL_KEY, level);
@@ -103,7 +104,9 @@ public class ApplicationData
 		setSaved ();
 	}
 
-
+	public static int getMaxLevel(){
+		return MAX_LEVEL_INT;
+	}
 
 }
 
