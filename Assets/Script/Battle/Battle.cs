@@ -162,22 +162,22 @@ public class Battle : MonoBehaviour {
 		int actual_element_number;
 		switch (currentAbility) {
 			case AbilityState.AGUA:
-				actual_element_number = 0;
-				break;
-			case AbilityState.TIERRA:
-				actual_element_number = 1;
-				break;
-			case AbilityState.FUEGO:
-				actual_element_number = 2;
-				break;
-			case AbilityState.VIENTO:
 				actual_element_number = 3;
 				break;
-			case AbilityState.NATURALEZA:
+			case AbilityState.TIERRA:
 				actual_element_number = 4;
 				break;
-			case AbilityState.ARCANO:
+			case AbilityState.FUEGO:
 				actual_element_number = 5;
+				break;
+			case AbilityState.VIENTO:
+				actual_element_number = 1;
+				break;
+			case AbilityState.NATURALEZA:
+				actual_element_number = 2;
+				break;
+			case AbilityState.ARCANO:
+				actual_element_number = 0;
 				break;
 			default:
 				actual_element_number = 6;
@@ -189,7 +189,7 @@ public class Battle : MonoBehaviour {
 		multiplier = enemy.getMultiplier(currentAbility);
 
 		if (!perform_attack(actual_element_number)){
-			// return -1;
+			return -1;
 		}
 
 		finalDamage = (int)System.Math.Floor(baseDamage * multiplier);
@@ -582,7 +582,7 @@ public class Battle : MonoBehaviour {
 	}
 
 	protected void elemento_secuencia() {
-		switch (contador_secuencia) {
+		switch (secuencia[contador_secuencia]) {
 			case 0:
 				SoundManager.instance.PlaySingle ("face_arcane");
 				break;
