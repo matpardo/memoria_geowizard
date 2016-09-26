@@ -444,7 +444,7 @@ public class Battle : MonoBehaviour {
 						break;
 					case(EnemyAction.CONFUSE_PLAYER):
 						Debug.Log("confuse player");
-						// rotateCube((Rotation)ret.values[0]);
+						rotateCube((Rotation)ret.values[0]);
 						enemyAtkSfx = "";
 						enemyAtkSpeech = "enemy_rotate_" + ret.values[0].ToString().ToLower();
 						break;
@@ -508,12 +508,12 @@ public class Battle : MonoBehaviour {
 	
 	protected bool leftEvent(){
 		currentRotation = Rotation.LEFT;
-		return Input.GetKeyUp (KeyCode.LeftArrow) || (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.LeftArrow) || leftEventStick() || (prevState.DPad.Left == ButtonState.Released && state.DPad.Left == ButtonState.Pressed);
 	}
 	
 	protected bool rightEvent(){
 		currentRotation = Rotation.RIGHT;
-		return Input.GetKeyUp (KeyCode.RightArrow) || (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.RightArrow) || rightEventStick() || (prevState.DPad.Right == ButtonState.Released && state.DPad.Right == ButtonState.Pressed);
 	}
 	
 	protected bool topEvent(){
@@ -531,13 +531,13 @@ public class Battle : MonoBehaviour {
 	protected bool frontEvent(){
 		// return Input.GetKeyUp (KeyCode.RightControl) || (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.UP;
-		return Input.GetKeyUp (KeyCode.UpArrow) || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.UpArrow) || upEventStick() || (prevState.DPad.Up == ButtonState.Released && state.DPad.Up == ButtonState.Pressed);
 	}
 
 	protected bool behindEvent(){
 		// return Input.GetKeyUp (KeyCode.RightShift) || (prevState.Buttons.LeftShoulder== ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed);
 		currentRotation = Rotation.DOWN;
-		return Input.GetKeyUp (KeyCode.DownArrow) || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
+		return Input.GetKeyUp (KeyCode.DownArrow) || downEventStick() || (prevState.DPad.Down == ButtonState.Released && state.DPad.Down == ButtonState.Pressed);
 	}
 
 	protected bool instakill(){
@@ -624,5 +624,29 @@ public class Battle : MonoBehaviour {
 		} else {
 			return  false;
 		}
+	}
+
+	private bool leftEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  x < 0 && Mathf.Abs(x)>Mathf.Abs(y);
+	}
+	
+	private bool rightEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  x > 0 && Mathf.Abs(x)>Mathf.Abs(y);
+	}
+	
+	private bool upEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  y > 0 && Mathf.Abs(y)>Mathf.Abs(x);
+	}
+	
+	private bool downEventStick(){
+		float x = state.ThumbSticks.Left.X;
+		float y = state.ThumbSticks.Left.Y;
+		return  y < 0 && Mathf.Abs(y)>Mathf.Abs(x);
 	}
 }

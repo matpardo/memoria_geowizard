@@ -148,6 +148,9 @@ public class MonsterEntity : SignalEntity
 	}
 
 	public void removeHP(int dmg){
+		if (dmg <= 0) {
+			return;
+		}
 		this.hp -= dmg;
         if (this.hp < 0){
             this.hp = 0;
