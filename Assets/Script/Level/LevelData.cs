@@ -271,23 +271,37 @@ public class LevelData
 
 	        case 5:
 				levelData.hallData = new string[]{
-					"#######D#######",
-					"####### #######",
-					"#######u#######",
-					"###    -    ###",
-					"###u#######u###",
-					"###     -   ###",
-					"########h######",
-					"########   ####",
-					"########## ####",
+					"#D     W  T   #",
+					"############# #",
+					"#   W  - r  # #",
+					"#u##### ### # #",
+					"# #####M### #W#",
+					"#W#####  r -# #",
+					"# ######### # #",
+					"# W  ######d#u#",
+					"#### ######   #",
 				};
-				levelData.startPosition = new Vector2(10, 8);
+				levelData.startPosition = new Vector2(4, 8);
 				/*Orientations*/
 				//Doors
-				levelData.addOrientation(7, 0, Orientation.SOUTH);
-				levelData.addDoor(7, 0);
-				//help
-				levelData.addSound(8, 6, "ayuda-first-cubo", 17);
+				levelData.addOrientation(1, 0, Orientation.EAST);
+				levelData.addDoor(1, 0);
+				// Treasures
+				levelData.addOrientation(10, 0, Orientation.EAST);
+				//Monsters
+				levelData.addOrientation(7, 4, Orientation.NORTH);
+				levelData.addMonster(7, 4);
+				// Warps
+				// 12
+				levelData.addOrientation(2, 7, Orientation.EAST);
+				// 13
+				levelData.addOrientation(1, 5, Orientation.SOUTH);
+				// 14
+				levelData.addOrientation(4, 2, Orientation.WEST);
+				// 15
+				levelData.addOrientation(7, 0, Orientation.EAST);
+				// 16
+				levelData.addOrientation(13, 4, Orientation.SOUTH);
 	            break;
 
 			case 6:
