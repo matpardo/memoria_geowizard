@@ -206,25 +206,32 @@ public class LevelData
 				// 3
 				levelData.addOrientation(5, 2, Orientation.SOUTH);
 	            break;
-	        case 3:
+	       case 3:
 				levelData.hallData = new string[]{
-					"######D########",
-					"###### ########",
-					"###### ########",
-					"######      ###",
-					"########### ###",
-					"######      ###",
-					"######h########",
+					"###D###########",
+					"### ###########",
+					"### ###########",
+					"### l  W - h T#",
+					"######### #####",
+					"#########W#####",
+					"######  r #####",
 					"###### ########",
 					"###### ########",
 				};
 				levelData.startPosition = new Vector2(6, 8);
 				/*Orientations*/
 				//Doors
-				levelData.addOrientation(6, 0, Orientation.SOUTH);
-				levelData.addDoor(6, 0);
+				levelData.addOrientation(3, 0, Orientation.SOUTH);
+				levelData.addDoor(3, 0);
 				//help
-				levelData.addSound(6, 6, "continue", 7);
+				levelData.addSound(11, 3, "ayuda_tesoro", 4);
+				//Treasures
+				levelData.addOrientation(13, 3, Orientation.WEST);
+				// Warps
+				// 4
+				levelData.addOrientation(9, 5, Orientation.SOUTH);
+				// 5
+				levelData.addOrientation(7, 3, Orientation.EAST);
 	            break;
 
 	        case 4:
