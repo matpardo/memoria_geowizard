@@ -237,23 +237,36 @@ public class LevelData
 	        case 4:
 				levelData.hallData = new string[]{
 					"#D#############",
+					"#   W l-  - l #",
+					"####### ## ## #",
+					"######  ##T##W#",
+					"######u###### #",
+					"#T####  W - W #",
+					"# ######## ####",
+					"#-  W   r  ####",
 					"# #############",
-					"# #############",
-					"#       hlh ###",
-					"########### ###",
-					"########### ###",
-					"########### ###",
-					"########### ###",
-					"########### ###",
 				};
-				levelData.startPosition = new Vector2(11, 8);
+				levelData.startPosition = new Vector2(1, 8);
 				/*Orientations*/
 				//Doors
 				levelData.addOrientation(1, 0, Orientation.SOUTH);
 				levelData.addDoor(1, 0);
-				// Help
-				levelData.addSound(10, 3, "sonido-positivo", 4);
-				levelData.addSound(8, 3, "sonido-negativo", 4);
+				//Treasures
+				levelData.addOrientation(10, 3, Orientation.NORTH);
+				levelData.addOrientation(1, 5, Orientation.SOUTH);
+
+				// 6
+				levelData.addOrientation(4, 7, Orientation.WEST);
+				// 7
+				levelData.addOrientation(12, 5, Orientation.EAST);
+				// 8
+				levelData.addOrientation(8, 5, Orientation.WEST);
+				// 9
+				// levelData.addOrientation(10, 3, Orientation.NORTH);
+				// 10
+				levelData.addOrientation(13, 3, Orientation.SOUTH);
+				// 11
+				levelData.addOrientation(4, 1, Orientation.EAST);
 	            break;
 
 	        case 5:
