@@ -281,25 +281,32 @@ public class LevelData
 				levelData.hallData = new string[]{
 					"#######D#######",
 					"####### #######",
-					"####### #######",
 					"#######h#######",
 					"#######M#######",
-					"####### #######",
-					"####### #######",
+					"#######W#######",
+					"#######W#######",
+					"#######W#######",
 					"#######h#######",
 					"####### #######",
 				};
 				levelData.startPosition = new Vector2(7, 8);
 				/*Orientations*/
 				//Monsters
-				levelData.addOrientation(7, 4, Orientation.SOUTH);
-				levelData.addMonster(7, 4);
+				levelData.addOrientation(7, 3, Orientation.SOUTH);
+				levelData.addMonster(7, 3);
 				//Doors
 				levelData.addOrientation(7, 0, Orientation.SOUTH);
 				levelData.addDoor(7, 0);
 				//help
 				levelData.addSound(7, 7, "last_battle_inc", 11);
-				levelData.addSound(7, 3, "final", 6);
+				levelData.addSound(7, 2, "final", 6);
+				// Warps
+				// 17
+				levelData.addOrientation(7, 6, Orientation.SOUTH);
+				// 18
+				levelData.addOrientation(7, 5, Orientation.SOUTH);
+				// 19
+				levelData.addOrientation(7, 4, Orientation.SOUTH);
 	            break;
             default:
 				break;
