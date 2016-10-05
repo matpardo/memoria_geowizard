@@ -149,6 +149,158 @@ public class LevelData
 	public static LevelData getLevel(int n){
 		LevelData levelData = new LevelData ();
 
+		// Express
+		switch (n) {
+			case 1:
+				levelData.hallData = new string[]{
+					"#D#############",
+					"#     l-     ##",
+					"#######u####u##",
+					"#######  -   ##",
+					"#########h#####",
+					"#   hr  h #####",
+					"#h#############",
+					"#h#############",
+					"# #############",
+				};
+				levelData.startPosition = new Vector2(1, 8);
+				/*Orientations*/
+				//Doors
+				levelData.addOrientation(1, 0, Orientation.SOUTH);
+				levelData.addDoor(1, 0);
+				// help
+				levelData.addSound(1, 6, "ayuda-first-rotation", 16);
+				levelData.addSound(1, 7, "ayuda-brujula", 16);
+				levelData.addSound(4, 5, "sonido-positivo", 4);
+				levelData.addSound(8, 5, "ayuda-touch-and-ask", 16);
+				levelData.addSound(9, 4, "ayuda-first-cubo", 17);
+	            break;
+	        case 2:
+				levelData.hallData = new string[]{
+					"#D#############",
+					"# ###########X#",
+					"#-l  W####### #",
+					"# ### #######h#",
+					"# W l-  l-    #",
+					"######### #####",
+					"######### #####",
+					"#  h W  r #####",
+					"# #############",
+				};
+				levelData.startPosition = new Vector2(1, 8);
+				/*Orientations*/
+				//Doors
+				levelData.addOrientation(1, 0, Orientation.SOUTH);
+				levelData.addDoor(1, 0);
+				//Traps
+				levelData.addOrientation(13, 1, Orientation.SOUTH);
+				levelData.addTrap(13,1);
+				// help
+				levelData.addSound(13, 3, "advertencia-trampa", 4);
+				levelData.addSound(3, 7, "energia-portal", 4);
+				//Warps 
+				// 1
+				levelData.addOrientation(5, 7, Orientation.WEST);
+				// 2
+				levelData.addOrientation(2, 4, Orientation.EAST);
+				// 3
+				levelData.addOrientation(5, 2, Orientation.SOUTH);
+	            break;
+	        case 3:
+				levelData.hallData = new string[]{
+					"######D########",
+					"###### ########",
+					"###### ########",
+					"######      ###",
+					"########### ###",
+					"######      ###",
+					"######h########",
+					"###### ########",
+					"###### ########",
+				};
+				levelData.startPosition = new Vector2(6, 8);
+				/*Orientations*/
+				//Doors
+				levelData.addOrientation(6, 0, Orientation.SOUTH);
+				levelData.addDoor(6, 0);
+				//help
+				levelData.addSound(6, 6, "continue", 7);
+	            break;
+
+	        case 4:
+				levelData.hallData = new string[]{
+					"#D#############",
+					"# #############",
+					"# #############",
+					"#       hlh ###",
+					"########### ###",
+					"########### ###",
+					"########### ###",
+					"########### ###",
+					"########### ###",
+				};
+				levelData.startPosition = new Vector2(11, 8);
+				/*Orientations*/
+				//Doors
+				levelData.addOrientation(1, 0, Orientation.SOUTH);
+				levelData.addDoor(1, 0);
+				// Help
+				levelData.addSound(10, 3, "sonido-positivo", 4);
+				levelData.addSound(8, 3, "sonido-negativo", 4);
+	            break;
+
+	        case 5:
+				levelData.hallData = new string[]{
+					"#######D#######",
+					"####### #######",
+					"#######u#######",
+					"###    -    ###",
+					"###u#######u###",
+					"###     -   ###",
+					"########h######",
+					"########   ####",
+					"########## ####",
+				};
+				levelData.startPosition = new Vector2(10, 8);
+				/*Orientations*/
+				//Doors
+				levelData.addOrientation(7, 0, Orientation.SOUTH);
+				levelData.addDoor(7, 0);
+				//help
+				levelData.addSound(8, 6, "ayuda-first-cubo", 17);
+	            break;
+
+			case 6:
+				levelData.hallData = new string[]{
+					"#######D#######",
+					"####### #######",
+					"####### #######",
+					"#######h#######",
+					"#######M#######",
+					"####### #######",
+					"####### #######",
+					"#######h#######",
+					"####### #######",
+				};
+				levelData.startPosition = new Vector2(7, 8);
+				/*Orientations*/
+				//Monsters
+				levelData.addOrientation(7, 4, Orientation.SOUTH);
+				levelData.addMonster(7, 4);
+				//Doors
+				levelData.addOrientation(7, 0, Orientation.SOUTH);
+				levelData.addDoor(7, 0);
+				//help
+				levelData.addSound(7, 7, "last_battle_inc", 11);
+				levelData.addSound(7, 3, "final", 6);
+	            break;
+            default:
+				break;
+		}
+		return levelData;
+
+
+		// Normal
 		switch (n) {
 			case 1:
 				levelData.hallData = new string[]{
