@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .756490767, g: 1, b: .639705896, a: 1}
+  m_Color: {r: 1, g: 1, b: .897058845, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -324,8 +324,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .779310346, g: 1, b: .529411793, a: 1}
-    m_HighlightedColor: {r: .682169139, g: 1, b: .33088237, a: 1}
+    m_NormalColor: {r: .201340839, g: .206696853, b: .977941155, a: 1}
+    m_HighlightedColor: {r: .200000018, g: .595000029, b: .976470649, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -461,7 +461,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nueva Partida
+  m_Text: 'Nueva Partida
+
+    (X)'
 --- !u!222 &1035010098
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -711,7 +713,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cargar Partida
+  m_Text: 'Cargar Partida
+
+    (B)'
 --- !u!222 &1509638258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,8 +846,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .529411793, g: .802434146, b: 1, a: 1}
-    m_HighlightedColor: {r: .329411745, g: .659932315, b: 1, a: 1}
+    m_NormalColor: {r: .992647052, g: .182471886, b: .182471886, a: 1}
+    m_HighlightedColor: {r: 1, g: .382352948, b: .382352948, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
