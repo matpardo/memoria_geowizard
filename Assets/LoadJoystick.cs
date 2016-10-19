@@ -3,7 +3,7 @@ using System.Collections;
 using XInputDotNetPure;
 using System;
 
-public class MenuJoystick : MonoBehaviour {
+public class LoadJoystick : MonoBehaviour {
 
 	GamePadState state;
 	GamePadState prevState;
@@ -28,13 +28,13 @@ public class MenuJoystick : MonoBehaviour {
         state = GamePad.GetState(playerIndex);
 
 		if (state.Buttons.X == ButtonState.Pressed) {
-			sn.startNewGame();
+			sn.goMainMenu();
 			// SoundManager.instance.PlaySingle ("Horse-nay");
 			return;
         }
 
         if (state.Buttons.B == ButtonState.Pressed) {
-			sn.goLoadMenu();
+			sn.startLoadedGame();
 			// SoundManager.instance.PlaySingle ("Horse-nay");
 			return;
         }
