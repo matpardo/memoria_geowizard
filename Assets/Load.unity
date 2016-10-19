@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .756490767, g: 1, b: .639705896, a: 1}
+  m_Color: {r: .486591697, g: .489574701, b: .91911763, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -239,8 +239,10 @@ GameObject:
   - 33: {fileID: 499237874}
   - 65: {fileID: 499237873}
   - 23: {fileID: 499237872}
+  - 114: {fileID: 499237877}
+  - 114: {fileID: 499237876}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LoadJoystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +303,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &499237876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 499237871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f12a91341e2724c83183ca51f28037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &499237877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 499237871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6e718e8d56fd541896b40aac5a8697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &585720354
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,8 +452,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .779310346, g: 1, b: .529411793, a: 1}
-    m_HighlightedColor: {r: .682169139, g: 1, b: .33088237, a: 1}
+    m_NormalColor: {r: .33575955, g: .0796929225, b: .985294104, a: 1}
+    m_HighlightedColor: {r: .33088237, g: .501622617, b: 1, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -607,7 +631,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Volver
+  m_Text: 'Volver
+
+    (X)'
 --- !u!222 &1035010098
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,7 +868,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jugar
+  m_Text: 'Jugar
+
+    (B)'
 --- !u!222 &1509638258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1012,8 +1040,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .529411793, g: .802434146, b: 1, a: 1}
-    m_HighlightedColor: {r: .329411745, g: .659932315, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: .147058845, b: .147058845, a: 1}
+    m_HighlightedColor: {r: 1, g: .329411745, b: .329411745, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
