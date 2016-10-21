@@ -11,6 +11,8 @@ public class LoadJoystick : MonoBehaviour {
 	bool resume_game;
 	PlayerIndex playerIndex = 0;
 	MenuEvent sn;
+	bool x_status;
+	bool b_status;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,8 @@ public class LoadJoystick : MonoBehaviour {
 		sn = gameObject.GetComponent<MenuEvent>();
 		prevState = GamePad.GetState(playerIndex);
 		state = prevState;
+		x_status = false;
+		b_status = false;
 	}
 	
 	// Update is called once per frame
@@ -28,15 +32,27 @@ public class LoadJoystick : MonoBehaviour {
         state = GamePad.GetState(playerIndex);
 
 		if (state.Buttons.X == ButtonState.Pressed) {
-			sn.goMainMenu();
+			x_status = true;
 			// SoundManager.instance.PlaySingle ("Horse-nay");
 			return;
+        } else {
+        	if (x_status) {
+        		x_status = false;
+        		sn.goMainMenu();
+        		return;
+        	}
         }
 
         if (state.Buttons.B == ButtonState.Pressed) {
-			sn.startLoadedGame();
+			b_status = true;
 			// SoundManager.instance.PlaySingle ("Horse-nay");
 			return;
+        } else {
+        	if (b_status) {
+        		b_status = false;
+        		sn.startLoadedGame();
+        		return;
+        	}
         }
 	}
 }
