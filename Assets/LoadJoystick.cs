@@ -7,7 +7,7 @@ public class LoadJoystick : MonoBehaviour {
 
 	GamePadState state;
 	GamePadState prevState;
-	bool new_game;
+	bool main_menu;
 	bool resume_game;
 	PlayerIndex playerIndex = 0;
 	MenuEvent sn;
@@ -16,7 +16,7 @@ public class LoadJoystick : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		new_game = false;
+		main_menu = false;
 		resume_game = false;
 		sn = gameObject.GetComponent<MenuEvent>();
 		prevState = GamePad.GetState(playerIndex);
@@ -38,7 +38,13 @@ public class LoadJoystick : MonoBehaviour {
         } else {
         	if (x_status) {
         		x_status = false;
-        		sn.goMainMenu();
+        		if (main_menu) {
+        			main_menu = false;
+        			sn.goMainMenu();
+        		} else {
+        			main_menu = true;
+        			resume_game = false;
+        		}
         		return;
         	}
         }
@@ -50,7 +56,13 @@ public class LoadJoystick : MonoBehaviour {
         } else {
         	if (b_status) {
         		b_status = false;
-        		sn.startLoadedGame();
+        		if (resume_game) {
+        			resume_game = false;
+        			sn.startLoadedGame();
+        		} else {
+        			resume_game = true;
+        			main_menu = false;
+        		}
         		return;
         	}
         }

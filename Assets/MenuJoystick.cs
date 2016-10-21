@@ -38,7 +38,13 @@ public class MenuJoystick : MonoBehaviour {
         } else {
         	if (x_status) {
         		x_status = false;
-        		sn.startNewGame();
+        		if (new_game) {
+        			new_game = false;
+        			sn.startNewGame();
+        		} else {
+        			new_game = true;
+        			resume_game = false;
+        		}
         		return;
         	}
         }
@@ -50,7 +56,13 @@ public class MenuJoystick : MonoBehaviour {
         } else {
         	if (b_status) {
         		b_status = false;
-        		sn.goLoadMenu();
+        		if(resume_game) {
+        			resume_game = false;
+        			sn.goLoadMenu();
+        		} else {
+        			resume_game = true;
+        			new_game = false;
+        		}
         		return;
         	}
         }
