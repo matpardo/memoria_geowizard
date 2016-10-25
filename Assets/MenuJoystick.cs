@@ -14,6 +14,14 @@ public class MenuJoystick : MonoBehaviour {
 	bool x_status;
 	bool b_status;
 
+	public AudioSource welcome;
+	public AudioSource start_game;
+	public AudioSource old_game;
+
+	void Awake () {
+		welcome.Play();
+	}
+
 	// Use this for initialization
 	void Start () {
 		new_game = false;
@@ -44,6 +52,9 @@ public class MenuJoystick : MonoBehaviour {
         		} else {
         			new_game = true;
         			resume_game = false;
+        			welcome.Stop();
+        			old_game.Stop();
+        			start_game.Play();
         		}
         		return;
         	}
@@ -62,9 +73,22 @@ public class MenuJoystick : MonoBehaviour {
         		} else {
         			resume_game = true;
         			new_game = false;
+        			welcome.Stop();
+        			start_game.Stop();
+        			old_game.Play();
         		}
         		return;
         	}
+        }
+
+        if (state.Buttons.Y == ButtonState.Pressed || state.Buttons.A == ButtonState.Pressed) {
+        	new_game = false;
+        	resume_game = false;
+        	welcome.Stop();
+        	start_game.Stop();
+        	old_game.Stop();
+        	welcome.Play();
+        	return;
         }
 	}
 }

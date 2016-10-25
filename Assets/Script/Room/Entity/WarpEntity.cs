@@ -27,9 +27,18 @@ public class WarpEntity : SignalEntity
 			is_destroyable = false;
 			Game.GetInstance ().player.wait (1);
 			generateRiddleQuestion();
+			// setRiddlePlayer();
 			Game.GetInstance ().player.wait (4);
 			SoundManager.instance.PlaySingle ("riddle");
 		}
+	}
+
+	public void selectRiddle(int riddle) {
+		riddle_number = riddle;
+	}
+
+	public void setRiddlePlayer() {
+		Game.GetInstance ().player.setRiddle(this);
 	}
 
 	public override void ask ()
