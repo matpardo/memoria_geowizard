@@ -304,49 +304,49 @@ public class LevelData
 				levelData.addOrientation(13, 4, Orientation.SOUTH);
 	            break;
 
-	        case 6:
-	        	levelData.hallData = new string[]{
-					"#######D#######",
-					"####### #######",
-					"####### #######",
-					"##      #######",
-					"## ############",
-					"##T############",
-					"## ############",
-					"##      #######",
-					"####### #######",
-				};
-				levelData.startPosition = new Vector2(7, 8);
-				/*Orientations*/
-				//Doors
-				levelData.addOrientation(7, 0, Orientation.SOUTH);
-				levelData.addDoor(7, 0);
-				// Treasures
-				levelData.addOrientation(2, 5, Orientation.SOUTH);
-	            break;
+	   //      case 6:
+	   //      	levelData.hallData = new string[]{
+				// 	"#######D#######",
+				// 	"####### #######",
+				// 	"####### #######",
+				// 	"##      #######",
+				// 	"## ############",
+				// 	"##T############",
+				// 	"## ############",
+				// 	"##      #######",
+				// 	"####### #######",
+				// };
+				// levelData.startPosition = new Vector2(7, 8);
+				// /*Orientations*/
+				// //Doors
+				// levelData.addOrientation(7, 0, Orientation.SOUTH);
+				// levelData.addDoor(7, 0);
+				// // Treasures
+				// levelData.addOrientation(2, 5, Orientation.SOUTH);
+	   //          break;
 
-	        case 7:
-	        	levelData.hallData = new string[]{
-					"#######D#######",
-					"####### #######",
-					"####### #######",
-					"#######      ##",
-					"############ ##",
-					"############T##",
-					"############ ##",
-					"#######      ##",
-					"####### #######",
-				};
-				levelData.startPosition = new Vector2(7, 8);
-				/*Orientations*/
-				//Doors
-				levelData.addOrientation(7, 0, Orientation.SOUTH);
-				levelData.addDoor(7, 0);
-				// Treasures
-				levelData.addOrientation(12, 5, Orientation.SOUTH);
-	            break;
+	   //      case 7:
+	   //      	levelData.hallData = new string[]{
+				// 	"#######D#######",
+				// 	"####### #######",
+				// 	"####### #######",
+				// 	"#######      ##",
+				// 	"############ ##",
+				// 	"############T##",
+				// 	"############ ##",
+				// 	"#######      ##",
+				// 	"####### #######",
+				// };
+				// levelData.startPosition = new Vector2(7, 8);
+				// /*Orientations*/
+				// //Doors
+				// levelData.addOrientation(7, 0, Orientation.SOUTH);
+				// levelData.addDoor(7, 0);
+				// // Treasures
+				// levelData.addOrientation(12, 5, Orientation.SOUTH);
+	   //          break;
 
-			case 8:
+			case 6:
 				levelData.hallData = new string[]{
 					"#######D#######",
 					"####### #######",
