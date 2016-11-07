@@ -1,0 +1,9 @@
+Los sonidos están separados en tres carpetas
+
+Batalla: El sonido de victoria de Batalla (porque también se usan del cubo, que se deja aparte)
+
+Cubo: Sonidos del cubo
+
+Laberinto: La mayoría de los sonidos
+
+En cada carpeta hay un txt para explicar para qué se usa cada sonido
