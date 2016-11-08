@@ -136,9 +136,9 @@ public class JoystickMovementController : PlayerMovementController
 		else if (state.Buttons.B == ButtonState.Pressed) {
 			// Direccion de brujula
 			// TODO : Relacionar con state del player
-			// if(player.state != PlayerState.STOPPED) {
-			// 	return;
-			// }
+			if(player.state != PlayerState.STOPPED) {
+				return;
+			}
 			player.askOrientation();
 			return;
 		}
