@@ -92,7 +92,10 @@ public class RoomObjectGenerator
 		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		go.GetComponent<MeshRenderer>().material = Resources.Load("BlueMat") as Material;
 		updateObjectTransform (go, i, j);
-		return go.AddComponent<WarpEntity> () as WarpEntity;
+		int init = data.getInitAt(i,j);
+		WarpEntity we = go.AddComponent<WarpEntity> () as WarpEntity;
+		we.selectRiddle(init);
+		return we;
 	}
 
 	private RoomEntity instantiateDownSignal(int i, int j){

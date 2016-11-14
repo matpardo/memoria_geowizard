@@ -18,7 +18,7 @@ public class ApplicationData
 	// Normal
 	// private static readonly int MAX_LEVEL_INT = 11;
 	// Express
-	private static readonly int MAX_LEVEL_INT = 8;
+	private static readonly int MAX_LEVEL_INT = 6;
 
 	public static void setLastLevel(int level){
 		PlayerPrefs.SetInt (LAST_LEVEL_KEY, level);

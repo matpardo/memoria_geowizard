@@ -11,6 +11,7 @@ public class LevelData
 	private Dictionary<string, Orientation> orientations;
 	private Dictionary<string, string> sounds;
 	private Dictionary<string, float> soundsDuration;
+	private Dictionary<string, int> inits;
 	private Vector2 door;
     private ArrayList monsters;
 	private ArrayList traps;
@@ -21,6 +22,7 @@ public class LevelData
 		traps = new ArrayList();
 		sounds = new Dictionary<string, string> ();
 		soundsDuration = new Dictionary<string, float> ();
+		inits = new Dictionary<string, int> ();
 	}
 
 	public Vector2 getStartPosition(){
@@ -52,6 +54,10 @@ public class LevelData
 		soundsDuration.Add (i + "," + j, duration);
 	}
 
+	public void addInit(int i, int j, int n) {
+		inits.Add (i + "," + j, n);
+	}
+
 	public string getSound(int i, int j){
 		return sounds [i + "," + j];
 	}
@@ -62,6 +68,10 @@ public class LevelData
 
 	public Orientation getOrientationAt(int i, int j){
 		return orientations [i + "," + j];
+	}
+
+	public int getInitAt(int i, int j) {
+		return inits [i + "," + j];
 	}
 
 	public void addDoor(int i, int j)
@@ -201,10 +211,13 @@ public class LevelData
 				//Warps 
 				// 1
 				levelData.addOrientation(5, 7, Orientation.WEST);
+				levelData.addInit(5,7,0);
 				// 2
 				levelData.addOrientation(2, 4, Orientation.EAST);
+				levelData.addInit(2,4,1);
 				// 3
 				levelData.addOrientation(5, 2, Orientation.SOUTH);
+				levelData.addInit(5,2,2);
 	            break;
 	       case 3:
 				levelData.hallData = new string[]{
@@ -230,8 +243,10 @@ public class LevelData
 				// Warps
 				// 4
 				levelData.addOrientation(9, 5, Orientation.SOUTH);
+				levelData.addInit(9,5,3);
 				// 5
 				levelData.addOrientation(7, 3, Orientation.EAST);
+				levelData.addInit(7,3,4);
 	            break;
 
 	        case 4:
@@ -257,16 +272,22 @@ public class LevelData
 
 				// 6
 				levelData.addOrientation(4, 7, Orientation.WEST);
+				levelData.addInit(4,7,5);
 				// 7
 				levelData.addOrientation(12, 5, Orientation.EAST);
+				levelData.addInit(12,5,6);
 				// 8
 				levelData.addOrientation(8, 5, Orientation.WEST);
+				levelData.addInit(8,5,7);
 				// 9
 				// levelData.addOrientation(10, 3, Orientation.NORTH);
+				// levelData.addInit(10,3,8);
 				// 10
 				levelData.addOrientation(13, 3, Orientation.SOUTH);
+				levelData.addInit(12,3,9);
 				// 11
 				levelData.addOrientation(4, 1, Orientation.EAST);
+				levelData.addInit(4,1,10);
 	            break;
 
 	        case 5:
@@ -294,59 +315,64 @@ public class LevelData
 				// Warps
 				// 12
 				levelData.addOrientation(2, 7, Orientation.EAST);
+				levelData.addInit(2,7,11);
 				// 13
 				levelData.addOrientation(1, 5, Orientation.SOUTH);
+				levelData.addInit(1,5,12);
 				// 14
 				levelData.addOrientation(4, 2, Orientation.WEST);
+				levelData.addInit(4,2,13);
 				// 15
 				levelData.addOrientation(7, 0, Orientation.EAST);
+				levelData.addInit(7,0,14);
 				// 16
 				levelData.addOrientation(13, 4, Orientation.SOUTH);
+				levelData.addInit(13,4,15);
 	            break;
 
-	        case 6:
-	        	levelData.hallData = new string[]{
-					"#######D#######",
-					"####### #######",
-					"####### #######",
-					"##      #######",
-					"## ############",
-					"##T############",
-					"## ############",
-					"##      #######",
-					"####### #######",
-				};
-				levelData.startPosition = new Vector2(7, 8);
-				/*Orientations*/
-				//Doors
-				levelData.addOrientation(7, 0, Orientation.SOUTH);
-				levelData.addDoor(7, 0);
-				// Treasures
-				levelData.addOrientation(2, 5, Orientation.SOUTH);
-	            break;
+	   //      case 6:
+	   //      	levelData.hallData = new string[]{
+				// 	"#######D#######",
+				// 	"####### #######",
+				// 	"####### #######",
+				// 	"##      #######",
+				// 	"## ############",
+				// 	"##T############",
+				// 	"## ############",
+				// 	"##      #######",
+				// 	"####### #######",
+				// };
+				// levelData.startPosition = new Vector2(7, 8);
+				// /*Orientations*/
+				// //Doors
+				// levelData.addOrientation(7, 0, Orientation.SOUTH);
+				// levelData.addDoor(7, 0);
+				// // Treasures
+				// levelData.addOrientation(2, 5, Orientation.SOUTH);
+	   //          break;
 
-	        case 7:
-	        	levelData.hallData = new string[]{
-					"#######D#######",
-					"####### #######",
-					"####### #######",
-					"#######      ##",
-					"############ ##",
-					"############T##",
-					"############ ##",
-					"#######      ##",
-					"####### #######",
-				};
-				levelData.startPosition = new Vector2(7, 8);
-				/*Orientations*/
-				//Doors
-				levelData.addOrientation(7, 0, Orientation.SOUTH);
-				levelData.addDoor(7, 0);
-				// Treasures
-				levelData.addOrientation(12, 5, Orientation.SOUTH);
-	            break;
+	   //      case 7:
+	   //      	levelData.hallData = new string[]{
+				// 	"#######D#######",
+				// 	"####### #######",
+				// 	"####### #######",
+				// 	"#######      ##",
+				// 	"############ ##",
+				// 	"############T##",
+				// 	"############ ##",
+				// 	"#######      ##",
+				// 	"####### #######",
+				// };
+				// levelData.startPosition = new Vector2(7, 8);
+				// /*Orientations*/
+				// //Doors
+				// levelData.addOrientation(7, 0, Orientation.SOUTH);
+				// levelData.addDoor(7, 0);
+				// // Treasures
+				// levelData.addOrientation(12, 5, Orientation.SOUTH);
+	   //          break;
 
-			case 8:
+			case 6:
 				levelData.hallData = new string[]{
 					"#######D#######",
 					"####### #######",
@@ -372,10 +398,13 @@ public class LevelData
 				// Warps
 				// 17
 				levelData.addOrientation(7, 6, Orientation.SOUTH);
+				levelData.addInit(7,6,16);
 				// 18
 				levelData.addOrientation(7, 5, Orientation.SOUTH);
+				levelData.addInit(7,5,17);
 				// 19
 				levelData.addOrientation(7, 4, Orientation.SOUTH);
+				levelData.addInit(7,4,18);
 	            break;
             default:
 				break;

@@ -1,0 +1,7 @@
+Arriba (Arcano)    : arcane_select
+Norte (Tierra)     : earth_select
+Sur (Fuego)        : fire_select
+Abajo (Naturaleza) : nature_select
+Este (Agua)        : water_select
+Oeste (Viento)     : wind_select
+

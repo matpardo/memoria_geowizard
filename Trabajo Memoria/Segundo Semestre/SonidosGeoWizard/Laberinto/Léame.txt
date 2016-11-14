@@ -1,0 +1,12 @@
+Desplegar Bastón              : baston_despliegue_interior_n
+Respiración monstruo cerca    : breathing
+Avanza en buena dirección     : correct
+Trampa Cerca                  : death-ray
+Choque muralla                : error
+Girar a la derecha            : giro-derecha
+Girar a la izquierda          : giro-izquierda
+Avanza en dirección contraria : incorrect
+Obtiene tesoro                : item_pickup
+Caminar un paso               : paso1 luego paso2 (secuencia conforma un paso dentro del juego, moverse una casilla o cuadrado)
+Cerca de salida               : shooting-star
+Encontrarse con acertijo      : warp
