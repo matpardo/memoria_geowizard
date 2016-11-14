@@ -284,7 +284,7 @@ public class LevelData
 				// levelData.addInit(10,3,8);
 				// 10
 				levelData.addOrientation(13, 3, Orientation.SOUTH);
-				levelData.addInit(12,3,9);
+				levelData.addInit(13,3,9);
 				// 11
 				levelData.addOrientation(4, 1, Orientation.EAST);
 				levelData.addInit(4,1,10);
