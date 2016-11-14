@@ -810,7 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb23301bf5080d542acd46acf92519c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choque: {fileID: 8300000, guid: e579ba63f869d9b4b96c8dfe8690fac9, type: 3}
 --- !u!1 &890046235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1138,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorMaterial: {fileID: 2100000, guid: 7bd9cd023daf1e54185b6d111b325ed7, type: 2}
+  floorMaterial2: {fileID: 2100000, guid: 977199b707a8ce44c8ed7b06f5bd430f, type: 2}
+  floorMaterial3: {fileID: 2100000, guid: c295c6adbd4e1ac47a90ae4f773f5547, type: 2}
+  floorMaterial4: {fileID: 2100000, guid: 59b4b6f47676f6440947b7962ef41fc2, type: 2}
   wallMaterial: {fileID: 2100000, guid: 52cf702266db7284db1c4fd0a0392bd1, type: 2}
+  wallMaterial2: {fileID: 2100000, guid: af05cef3d731966449a9bd9cdc3665e1, type: 2}
+  wallMaterial3: {fileID: 2100000, guid: 59b4b6f47676f6440947b7962ef41fc2, type: 2}
+  wallMaterial4: {fileID: 2100000, guid: 382d4621c391fbc4b92c6396fbc611a7, type: 2}
 --- !u!4 &1705262881
 Transform:
   m_ObjectHideFlags: 0

@@ -19,8 +19,16 @@ public class WallMeshBuilder
 		mesh.normals = generateNormals (width, height);
 		mesh.triangles = generateTriangles (width, height);
 		mesh.uv = generateUV (mesh.vertices);
-
-		renderer.material = Game.GetInstance ().roomMaterial.wallMaterial;
+		int actual_level = ApplicationData.getLastLevel();
+		if (actual_level == 1 || actual_level == 2) {
+			renderer.material = Game.GetInstance ().roomMaterial.wallMaterial;
+		} else if (actual_level == 3 || actual_level == 4){
+			renderer.material = Game.GetInstance ().roomMaterial.wallMaterial2;
+		} else if (actual_level == 5) {
+			renderer.material = Game.GetInstance ().roomMaterial.wallMaterial3;
+		} else {
+			renderer.material = Game.GetInstance ().roomMaterial.wallMaterial4;
+		}
 
 		return wall;
 	}
