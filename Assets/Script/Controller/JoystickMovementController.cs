@@ -171,6 +171,9 @@ public class JoystickMovementController : PlayerMovementController
 		// Al presionar X
 		else if (state.Buttons.X == ButtonState.Pressed) {
 			// Reproducir ayuda cubo
+			if(player.state != PlayerState.STOPPED) {
+				return;
+			}
 			player.wait(11.5f);
 			SoundManager.instance.PlaySingle ("Cubo_laberinto");
 		}

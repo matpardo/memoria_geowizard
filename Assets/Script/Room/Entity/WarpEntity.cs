@@ -26,8 +26,8 @@ public class WarpEntity : SignalEntity
 		if (!is_destroyable) {
 			is_destroyable = false;
 			Game.GetInstance ().player.wait (1);
-			generateRiddleQuestion();
-			// setRiddlePlayer();
+			// generateRiddleQuestion();
+			setRiddlePlayer();
 			Game.GetInstance ().player.wait (4);
 			SoundManager.instance.PlaySingle ("riddle");
 		}
