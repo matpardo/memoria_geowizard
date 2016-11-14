@@ -601,6 +601,12 @@ public class Player : MonoBehaviour
 				actual_riddle = null;
 				state = PlayerState.STOPPED;
 				wait(1);
+			} else {
+				removeHP(10);
+				if (getHP() == 0) {
+					// Invoke ("nextScene", 5);
+					// TODO : reiniciar al morir
+				}
 			}
 		} else {
 			SoundManager.instance.PlaySingle ("Horse-nay");
