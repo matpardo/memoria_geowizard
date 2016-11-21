@@ -33,6 +33,10 @@ public class MagicBlock : MonoBehaviour {
 	
 	}
 
+	private void nextLevel(){
+		SceneLoader.GetInstance().load("HallStateIncomplete");
+	}
+
 	void FixedUpdate () {
 		if (active) {
 			prevState = state;
@@ -162,6 +166,8 @@ public class MagicBlock : MonoBehaviour {
 			block.GetComponent<Renderer>().material = new_material;
 			if (next_block) {
 				next_block.activate();
+			} else {
+				nextLevel();
 			}
 		}
 	}

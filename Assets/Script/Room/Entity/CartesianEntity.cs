@@ -11,6 +11,10 @@ public class CartesianEntity : SignalEntity
 	private void nextScene(){
 		SceneLoader.GetInstance ().load("CartesianState");
 	}
+
+	public override bool destroyable(){
+		return true;
+	}
 	
 	public override void handleCollision(){
 		base.handleCollision ();
