@@ -103,6 +103,7 @@ public class MagicBlock : MonoBehaviour {
 		float new_x = transform.position.x - 1;
 		if (new_x < (-1 * max_x)) {
 			new_x = (-1 * max_x);
+			GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 		}
 		block.transform.position = new Vector3(new_x, transform.position.y, transform.position.z);
 	}
@@ -111,6 +112,7 @@ public class MagicBlock : MonoBehaviour {
 		float new_x = transform.position.x + 1;
 		if (new_x > (max_x)) {
 			new_x = (max_x);
+			GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 		}
 		block.transform.position = new Vector3(new_x, transform.position.y, transform.position.z);
 	}
@@ -119,6 +121,7 @@ public class MagicBlock : MonoBehaviour {
 		float new_z = transform.position.z + 1;
 		if (new_z > (max_z)) {
 			new_z = (max_z);
+			GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 		}
 		block.transform.position = new Vector3(transform.position.x, transform.position.y, new_z);
 	}
@@ -127,6 +130,7 @@ public class MagicBlock : MonoBehaviour {
 		float new_z = transform.position.z - 1;
 		if (new_z < (-1 * max_z)) {
 			new_z = (-1 * max_z);
+			GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 		}
 		block.transform.position = new Vector3(transform.position.x, transform.position.y, new_z);
 	}
