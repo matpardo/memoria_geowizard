@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using XInputDotNetPure;
 
@@ -15,6 +16,8 @@ public class Player : MonoBehaviour
 	private bool ableToMove;
 	private TreasureEntity actual_treasure;
 	private WarpEntity actual_riddle;
+
+	public Text playerHP;
 
 	/// <summary>
 	/// The actual geometric room level
@@ -150,8 +153,17 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	public void updateHPText() {
+		playerHP.text = "HP: " + getHP();
+		if (getHP() == 0) {
+			SoundManager.instance.PlaySingle ("lvlReset");
+			(SceneLoader.GetInstance()).cleanLoad("HallState");
+		}
+	}
+
 	void FixedUpdate ()
 	{
+		updateHPText();
 		if (state == PlayerState.STOPPED) {
 			return;
 		}
@@ -332,10 +344,19 @@ public class Player : MonoBehaviour
     public void setHP(int hp)
     {
         this.hp = hp;
+
+        if (this.hp > 100) {
+        	this.hp = 100;
+        }
     }
 
 	public int getHP(){
 		return this.hp;
+	}
+
+	public void addHP (int hp)
+	{
+		setHP(getHP() + hp);
 	}
 
     public void setMaxHP(int maxHp)
@@ -600,13 +621,10 @@ public class Player : MonoBehaviour
 				Destroy(actual_riddle.gameObject);
 				actual_riddle = null;
 				state = PlayerState.STOPPED;
+				addHP(20);
 				wait(1);
 			} else {
 				removeHP(10);
-				if (getHP() == 0) {
-					// Invoke ("nextScene", 5);
-					// TODO : reiniciar al morir
-				}
 			}
 		} else {
 			SoundManager.instance.PlaySingle ("Horse-nay");
