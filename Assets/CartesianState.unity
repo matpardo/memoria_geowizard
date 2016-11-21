@@ -120,6 +120,7 @@ MonoBehaviour:
   y_answer: 4
   block: {fileID: 114177499}
   next_block: {fileID: 0}
+  new_material: {fileID: 2100000, guid: 88157e674d7d0314db76940c73b69405, type: 2}
 --- !u!23 &114177501
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -873,6 +874,7 @@ MonoBehaviour:
   y_answer: 3
   block: {fileID: 1686049131}
   next_block: {fileID: 114177500}
+  new_material: {fileID: 2100000, guid: 45090e654d767fa429486b4a9f8943c7, type: 2}
 --- !u!1 &1731509681
 GameObject:
   m_ObjectHideFlags: 0

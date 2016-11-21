@@ -16,6 +16,7 @@ public class MagicBlock : MonoBehaviour {
 
 	public GameObject block;
 	public MagicBlock next_block;
+	public Material new_material;
 
 	PlayerIndex playerIndex = 0;
 	GamePadState state;
@@ -119,6 +120,7 @@ public class MagicBlock : MonoBehaviour {
 	private void check_is_correct() {
 		if (transform.position.x == x_answer && transform.position.z == y_answer) {
 			deactivate();
+			block.GetComponent<Renderer>().material = new_material;
 			if (next_block) {
 				next_block.activate();
 			}
