@@ -27,6 +27,11 @@ public class MagicBlock : MonoBehaviour {
 	public AudioSource wind;
 	public AudioSource fire;
 
+	public AudioSource many_left;
+	public AudioSource help;
+	public AudioSource question;
+	public AudioSource origin;
+
 	PlayerIndex playerIndex = 0;
 	GamePadState state;
 	GamePadState prevState;
@@ -112,7 +117,23 @@ public class MagicBlock : MonoBehaviour {
 	        	 }
 	        } else if (state.Buttons.Y == ButtonState.Pressed){
 	        	if (!waiting_release) {
+	        		origin.Play();
 	        		move_to_start();
+	        	}
+	        	waiting_release = true;
+	        } else if (state.Buttons.A == ButtonState.Pressed){
+	        	if (!waiting_release) {
+	        		question.Play();
+	        	}
+	        	waiting_release = true;
+	        } else if (state.Buttons.X == ButtonState.Pressed){
+	        	if (!waiting_release) {
+	        		help.Play();
+	        	}
+	        	waiting_release = true;
+	        } else if (state.Buttons.B == ButtonState.Pressed){
+	        	if (!waiting_release) {
+	        		many_left.Play();
 	        	}
 	        	waiting_release = true;
 	        } else {
