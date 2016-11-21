@@ -12,8 +12,10 @@ public class MagicBlock : MonoBehaviour {
 	private int max_z = 5;
 
 	private bool waiting_release;
+	private bool flying;
 
 	public GameObject block;
+	public MagicBlock next_block;
 
 	PlayerIndex playerIndex = 0;
 	GamePadState state;
@@ -22,6 +24,7 @@ public class MagicBlock : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		waiting_release = false;
+		flying = true;
 	}
 	
 	// Update is called once per frame
@@ -30,33 +33,44 @@ public class MagicBlock : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		prevState = state;
-        state = GamePad.GetState(playerIndex);
+		if (active) {
+			prevState = state;
+        	state = GamePad.GetState(playerIndex);
 
-        if (leftEvent()) {
-        	 if (!waiting_release) {
-        	 	moveLeft();
-        	 }
-        	 waiting_release = true;
-        } else if (rightEvent()) {
-        	 if (!waiting_release) {
-        	 	moveRight();
-        	 }
-        	 waiting_release = true;
-        } else if (upEvent()) {
-        	 if (!waiting_release) {
-        	 	moveUp();
-        	 }
-        	 waiting_release = true;
-        } else if (downEvent()) {
-        	 if (!waiting_release) {
-        	 	moveDown();
-        	 }
-        	 waiting_release = true;
-        }
-       	else {
-        	waiting_release = false;
-        }
+	        if (leftEvent() && flying) {
+	        	 if (!waiting_release) {
+	        	 	moveLeft();
+	        	 }
+	        	 waiting_release = true;
+	        } else if (rightEvent() && flying) {
+	        	 if (!waiting_release) {
+	        	 	moveRight();
+	        	 }
+	        	 waiting_release = true;
+	        } else if (upEvent() && flying) {
+	        	 if (!waiting_release) {
+	        	 	moveUp();
+	        	 }
+	        	 waiting_release = true;
+	        } else if (downEvent() && flying) {
+	        	 if (!waiting_release) {
+	        	 	moveDown();
+	        	 }
+	        	 waiting_release = true;
+	        } else if (bottomEvent() && flying) {
+	        	 if (!waiting_release) {
+	        	 	moveBottom();
+	        	 }
+	        	 waiting_release = true;
+	        } else if (topEvent() && !flying) {
+	        	 if (!waiting_release) {
+	        	 	moveTop();
+	        	 }
+	        	 waiting_release = true;
+	        } else {
+	        	waiting_release = false;
+	        }
+		}
 	}
 
 	private void moveLeft() {
@@ -91,6 +105,26 @@ public class MagicBlock : MonoBehaviour {
 		block.transform.position = new Vector3(transform.position.x, transform.position.y, new_z);
 	}
 
+	private void moveBottom() {
+		block.transform.position = new Vector3(transform.position.x, 0,transform.position.z);
+		flying = false;
+		check_is_correct();
+	}
+
+	private void moveTop() {
+		block.transform.position = new Vector3(transform.position.x, 1,transform.position.z);
+		flying = true;
+	}
+
+	private void check_is_correct() {
+		if (transform.position.x == x_answer && transform.position.z == y_answer) {
+			deactivate();
+			if (next_block) {
+				next_block.activate();
+			}
+		}
+	}
+
 	private bool leftEvent(){
 		float x = state.ThumbSticks.Left.X;
 		float y = state.ThumbSticks.Left.Y;
@@ -121,5 +155,14 @@ public class MagicBlock : MonoBehaviour {
 
 	private bool bottomEvent() {
 		return state.Triggers.Left > 0 ;
+	}
+
+	public void activate() {
+		this.active = true;
+		this.waiting_release = true;
+	}
+
+	public void deactivate() {
+		this.active = false;
 	}
 }
