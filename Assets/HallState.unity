@@ -197,7 +197,7 @@ MonoBehaviour:
   persistentScenes:
   - HallStateIncomplete
   - BattleState
-  - GeometricState
+  - CartesianState
   showObjectInScene:
   - {x: 1, y: 0}
   - {x: 2, y: 0}

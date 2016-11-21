@@ -83,6 +83,7 @@
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\PlayerState.cs" />
      <Compile Include="Assets\Script\Room\CollisionManager.cs" />
+     <Compile Include="Assets\Script\Room\Entity\CartesianEntity.cs" />
      <Compile Include="Assets\Script\Room\Entity\DoorEntity.cs" />
      <Compile Include="Assets\Script\Room\Entity\GeometricEntity.cs" />
      <Compile Include="Assets\Script\Room\Entity\MonsterEntity.cs" />
