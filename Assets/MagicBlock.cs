@@ -18,6 +18,15 @@ public class MagicBlock : MonoBehaviour {
 	public MagicBlock next_block;
 	public Material new_material;
 
+	public AudioSource correct;
+	public AudioSource incorrect;
+	public AudioSource arcane;
+	public AudioSource earth;
+	public AudioSource nature;
+	public AudioSource water;
+	public AudioSource wind;
+	public AudioSource fire;
+
 	PlayerIndex playerIndex = 0;
 	GamePadState state;
 	GamePadState prevState;
@@ -45,6 +54,7 @@ public class MagicBlock : MonoBehaviour {
 	        if (leftEvent()) {
 	        	 if (flying) {
 	        	 	if (!waiting_release) {
+	        	 		wind.Play();
 	        	 		moveLeft();
 	        	 	}
 	        	 	waiting_release = true;
@@ -54,6 +64,7 @@ public class MagicBlock : MonoBehaviour {
 	        } else if (rightEvent()) {
 	        	 if (flying) {
 	        	 	if (!waiting_release) {
+	        	 		water.Play();
 	        	 		moveRight();
 	        	 	}
 	        	 	waiting_release = true;
@@ -63,6 +74,7 @@ public class MagicBlock : MonoBehaviour {
 	        } else if (upEvent()) {
 	        	 if (flying) {
 	        	 	if (!waiting_release) {
+	        	 		earth.Play();
 	        	 		moveUp();
 	        	 	}
 	        	 	waiting_release = true;
@@ -72,6 +84,7 @@ public class MagicBlock : MonoBehaviour {
 	        } else if (downEvent()) {
 	        	 if (flying) {
 	        	 	if (!waiting_release) {
+	        	 		fire.Play();
 	        	 		moveDown();
 	        	 	}
 	        	 	waiting_release = true;
@@ -90,6 +103,7 @@ public class MagicBlock : MonoBehaviour {
 	        } else if (topEvent()) {
 	        	 if (!flying) {
 	        	 	if (!waiting_release) {
+	        	 		arcane.Play();
 	        	 		moveTop();
 	        	 	}
 	        	 	waiting_release = true;
@@ -164,11 +178,14 @@ public class MagicBlock : MonoBehaviour {
 		if (transform.position.x == x_answer && transform.position.z == y_answer) {
 			deactivate();
 			block.GetComponent<Renderer>().material = new_material;
+			correct.Play();
 			if (next_block) {
 				next_block.activate();
 			} else {
 				nextLevel();
 			}
+		} else {
+			incorrect.Play();
 		}
 	}
 
