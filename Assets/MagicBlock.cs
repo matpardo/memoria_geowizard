@@ -92,6 +92,11 @@ public class MagicBlock : MonoBehaviour {
 	        	 } else {
 	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
+	        } else if (state.Buttons.Y == ButtonState.Pressed){
+	        	if (!waiting_release) {
+	        		move_to_start();
+	        	}
+	        	waiting_release = true;
 	        } else {
 	        	GamePad.SetVibration((PlayerIndex)0, 0.0f, 0.0f);
 	        	waiting_release = false;
@@ -143,6 +148,11 @@ public class MagicBlock : MonoBehaviour {
 
 	private void moveTop() {
 		block.transform.position = new Vector3(transform.position.x, 1,transform.position.z);
+		flying = true;
+	}
+
+	private void move_to_start() {
+		block.transform.position = new Vector3(0, 2.59f, 0);
 		flying = true;
 	}
 
