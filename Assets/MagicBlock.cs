@@ -38,37 +38,62 @@ public class MagicBlock : MonoBehaviour {
 			prevState = state;
         	state = GamePad.GetState(playerIndex);
 
-	        if (leftEvent() && flying) {
-	        	 if (!waiting_release) {
-	        	 	moveLeft();
+	        if (leftEvent()) {
+	        	 if (flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveLeft();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
-	        } else if (rightEvent() && flying) {
-	        	 if (!waiting_release) {
-	        	 	moveRight();
+	        } else if (rightEvent()) {
+	        	 if (flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveRight();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
-	        } else if (upEvent() && flying) {
-	        	 if (!waiting_release) {
-	        	 	moveUp();
+	        } else if (upEvent()) {
+	        	 if (flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveUp();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
-	        } else if (downEvent() && flying) {
-	        	 if (!waiting_release) {
-	        	 	moveDown();
+	        } else if (downEvent()) {
+	        	 if (flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveDown();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
-	        } else if (bottomEvent() && flying) {
-	        	 if (!waiting_release) {
-	        	 	moveBottom();
+	        } else if (bottomEvent()) {
+	        	 if (flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveBottom();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
-	        } else if (topEvent() && !flying) {
-	        	 if (!waiting_release) {
-	        	 	moveTop();
+	        } else if (topEvent()) {
+	        	 if (!flying) {
+	        	 	if (!waiting_release) {
+	        	 		moveTop();
+	        	 	}
+	        	 	waiting_release = true;
+	        	 } else {
+	        	 	GamePad.SetVibration((PlayerIndex)0, 0.2f, 0.2f);
 	        	 }
-	        	 waiting_release = true;
 	        } else {
+	        	GamePad.SetVibration((PlayerIndex)0, 0.0f, 0.0f);
 	        	waiting_release = false;
 	        }
 		}
