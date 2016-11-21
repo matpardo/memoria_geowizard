@@ -31,6 +31,7 @@ public class MagicBlock : MonoBehaviour {
 	public AudioSource help;
 	public AudioSource question;
 	public AudioSource origin;
+	public AudioSource victory;
 
 	PlayerIndex playerIndex = 0;
 	GamePadState state;
@@ -203,7 +204,8 @@ public class MagicBlock : MonoBehaviour {
 			if (next_block) {
 				next_block.activate();
 			} else {
-				nextLevel();
+				victory.Play();
+				Invoke("nextLevel", 3);
 			}
 		} else {
 			incorrect.Play();
