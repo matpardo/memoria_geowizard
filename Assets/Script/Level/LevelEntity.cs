@@ -15,6 +15,7 @@ public enum Entity
 	SIGNAL_UP,
 	SIGNAL_DOWN,
 	SIGNAL_MULTI,
-	HELP
+	HELP,
+	CARTESIAN
 };
 

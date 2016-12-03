@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Load.unity
   - enabled: 1
     path: Assets/LevelCompleted.unity
+  - enabled: 1
+    path: Assets/CartesianState.unity

@@ -36,6 +36,8 @@ public class RoomObjectGenerator
 			return instantiateMultiSignal(i, j);
 		case Entity.HELP:
 			return instantiateHelp(i, j);
+		case Entity.CARTESIAN:
+			return instantiateCartesian(i, j);
 		default:
 			return null;
 		}
@@ -96,6 +98,13 @@ public class RoomObjectGenerator
 		WarpEntity we = go.AddComponent<WarpEntity> () as WarpEntity;
 		we.selectRiddle(init);
 		return we;
+	}
+
+	private RoomEntity instantiateCartesian(int i, int j){
+		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		go.GetComponent<MeshRenderer>().material = Resources.Load("BrownMat") as Material;
+		updateObjectTransform (go, i, j);
+		return go.AddComponent<CartesianEntity> () as CartesianEntity;;
 	}
 
 	private RoomEntity instantiateDownSignal(int i, int j){

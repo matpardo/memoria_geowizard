@@ -151,6 +151,8 @@ public class LevelData
 			return Entity.GEOMETRIC;
 		case 'h':
 			return Entity.HELP;
+		case 'C':
+			return Entity.CARTESIAN;
 		default:
 			return Entity.WALL;
 		}
@@ -224,7 +226,7 @@ public class LevelData
 					"###D###########",
 					"### ###########",
 					"### ###########",
-					"### l  W - h T#",
+					"### C lW - h T#",
 					"######### #####",
 					"#########W#####",
 					"######  r #####",
@@ -233,6 +235,8 @@ public class LevelData
 				};
 				levelData.startPosition = new Vector2(6, 8);
 				/*Orientations*/
+				//Cartesian
+				levelData.addOrientation(4, 3, Orientation.EAST);
 				//Doors
 				levelData.addOrientation(3, 0, Orientation.SOUTH);
 				levelData.addDoor(3, 0);
