@@ -1,14 +1,15 @@
 1.- Traspasar Fotos +
 2.- Metodología +
 3.- Experimentación +
-4.- Evaluación de Usabilidad
-5.- Descripción de la solución
-6.- Revisar escritura de Marco Teórico
-7.- Estado del Arte
-8.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2)
-9.- Evaluación de resultados
-10.- Introducción
-11.- Revisar qué falta
-12.- Completar Anexos
-13.- Resumen
-14.- Win
+4.- Evaluación de Usabilidad +
+5.- Especificación del Problema
+6.- Descripción de la solución
+7.- Revisar escritura de Marco Teórico +
+8.- Estado del Arte
+9.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2) +
+10.- Evaluación de resultados
+11.- Introducción
+12.- Revisar qué falta
+13.- Completar Anexos
+14.- Resumen
+15.- Win (mandar)
