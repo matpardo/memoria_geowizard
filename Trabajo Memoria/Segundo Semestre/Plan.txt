@@ -2,7 +2,7 @@
 2.- Metodología +
 3.- Experimentación +
 4.- Evaluación de Usabilidad +
-5.- Especificación del Problema
+5.- Especificación del Problema +
 6.- Descripción de la solución
 7.- Revisar escritura de Marco Teórico +
 8.- Estado del Arte
