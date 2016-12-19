@@ -13,3 +13,35 @@
 13.- Completar Anexos
 14.- Resumen
 15.- Win (mandar)
+
+3: Especificación del Problema
+3.1. Descripción detallada del problema
+3.2. Relevancia de contar con una solución
+3.3. Requisitos de la Solución
+3.3.1. Requisitos de Usuario
+3.3.2. Requsitios de Software
+3.4. Características de Calidad
+3.5. Criterios de Aceptación
+
+6.1 Versión del Videojuego
+6.2 Equipo e Interfaces Utilizadas
+6.3 Cuestionarios y procedimiento
+6.3.1. Cuestionario de Usuario Final
+6.3.1.1. Composición del instrumento
+6.3.1.2. Muestra
+6.3.1.3. Tarea realizada
+6.3.1.4. Procedimiento
+6.3.2. Entrevistas
+6.3.2.1. Muestra
+6.3.2.2. Tarea realizada
+6.3.2.3. Procedimiento
+6.3.3. Evaluación de Impacto
+6.3.3.1. Composición del instrumento
+6.3.3.2. Muestra
+6.3.3.3. Tareas realizadas
+6.3.3.4. Procedimiento
+6.3.4. Pauta de evaluación Heurística
+6.3.4.1. Composición del Instrumento
+6.3.4.2. Muestra
+6.3.4.3. Procedimiento
+6.4. Resultados
