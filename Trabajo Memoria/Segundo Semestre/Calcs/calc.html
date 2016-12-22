@@ -1,0 +1,182 @@
+<script type="text/javascript">
+var questions = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+var p1 = [10, 10, 5, 5, 10, 10, 10, 8, 8, 6, 10, 10];
+var p2 = [10, 10, 10, 8, 7, 10, 10, 9, 6, 7, 10, 10];
+var p3 = [8, 5, 4, 10, 5, 10, 10, 3, 10, 7, 10, 2];
+var p4 = [10, 10, 1, 10, 3, 10, 10, 10, 9, 6, 10, 10];
+var p5 = [10, 10, 3, 7, 10, 10, 10, 7, 10, 8, 10, 10];
+var p6 = [10, 7, 5, 10, 9, 10, 10, 10, 10, 9, 10, 10];
+var p7 = [10, 6, 10, 1, 8, 10, 10, 6, 10, 10, 10, 10];
+var p8 = [9, 10, 3, 1, 5, 10, 5, 1, 10, 9, 5, 2];
+var p9 = [1, 8, 5, 3, 10, 10, 6, 10, 8, 10, 8, 10];
+var p10 = [10, 9, 4, 10, 10, 10, 10, 7, 7, 8, 9, 10];
+var p11 = [9, 5, 10, 4, 7, 10, 10, 10, 10, 9, 10, 10];
+var p12 = [10, 10, 9, 9, 4, 10, 10, 8, 8, 8, 10, 2];
+var p13 = [10, 10, 8, 7, 5, 10, 7, 5, 10, 6, 10, 10];
+var p14 = [10, 10, 1, 1, 6, 10, 10, 10, 10, 9, 10, 10];
+var p15 = [10, 8, 5, 5, 10, 10, 10, 10, 9, 10, 10, 10];
+var p16 = [10, 8, 10, 4, 7, 10, 10, 10, 10, 10, 10, 10];
+var p17 = [10, 7, 10, 10, 9, 10, 10, 9, 10, 10, 10, 2];
+var p18 = ['NA', 8, 10, 10, 'NA', 10, 'NA', 10, 10, 10, 10, 'NA'];
+var p19 = ['NA', 10, 10, 10, 'NA', 10, 'NA', 10, 10, 10, 10, 'NA'];
+var p20 = ['NA', 10, 5, 9, 'NA', 10, 'NA', 9, 10, 9, 10, 'NA'];
+
+var ps = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20];
+
+var mins = [20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20];
+var maxs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var counter = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var sum = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var prom = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var stddev = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+var actual_counter = 0;
+var actual_sum = 0;
+var actual_min = 10;
+var actual_max = 0;
+var actual_dev = 0;
+
+function store(element, index, array) {
+	if (!isNaN(element)) {
+		if (element < actual_min) {
+			actual_min = element;
+		}
+		if (element > actual_max) {
+			actual_max = element;
+		}
+		actual_counter++;
+		actual_sum+=element;
+	}
+}
+
+function reset() {
+	actual_counter = 0;
+	actual_sum = 0;
+	actual_min = 10;
+	actual_max = 0;
+	actual_dev = 0;
+}
+
+function acomodate_data(element, index, array) {
+	element.forEach(store);
+	mins[index] = actual_min;
+	maxs[index] = actual_max;
+	counter[index] = actual_counter;
+	sum[index] = actual_sum;
+	reset();
+}
+
+function promediate(element, index, array) {
+	prom[index] = sum[index] / counter[index];
+}
+
+function array_report(element, index, array) {
+	console.log("Pregunta " + (index + 1) + "-------------");
+	console.log("Promedio"  + " = " + prom[index]);
+	console.log("Varianza"  + " = " + stddev[index]);
+	console.log("Min"  + " = " + mins[index]);
+	console.log("Max"  + " = " + maxs[index]);
+	console.log("-----------------------------------------");
+}
+
+function report() {
+	ps.forEach(array_report);
+}
+
+var data_ranking = [];
+function rank_proms() {
+	var prom_copy = prom;
+	for (var i = 0; i < prom_copy.length; i++) {
+	    var maximal = 0;
+	    var maximal_index = 0;
+	    for (var j = 0; j < prom_copy.length; j++) {
+	    	if (prom_copy[j] > maximal) {
+	    		maximal = prom_copy[j];
+	    		maximal_index = j;
+	    	} 
+	    }
+	    console.log((i+1) + ".- Pregunta " + (maximal_index + 1) + ": " + maximal);
+	    data_ranking.push([(maximal_index + 1) + "", maximal]);
+	    prom_copy[maximal_index] = 0;
+	}
+}
+
+ps.forEach(acomodate_data);
+ps.forEach(promediate);
+report();
+rank_proms();
+</script>
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Promedio de satisfacción por aseveración (Parte 2)'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Grado de satsifacción'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Aprobación: <b>{point.y:.1f}/b>'
+        },
+        series: [{
+            name: 'Population',
+            data: data_ranking.slice(10,20),
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+
+	</body>
+</html>
