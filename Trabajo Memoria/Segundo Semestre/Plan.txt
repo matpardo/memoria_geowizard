@@ -3,16 +3,17 @@
 3.- Experimentación +
 4.- Evaluación de Usabilidad +
 5.- Especificación del Problema +
-6.- Descripción de la solución
+6.- Descripción de la solución +
 7.- Revisar escritura de Marco Teórico +
 8.- Estado del Arte
 9.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2) +
 10.- Evaluación de resultados
-11.- Introducción
+11.- Introducción +
 12.- Revisar qué falta
 13.- Completar Anexos
 14.- Resumen
-15.- Win (mandar)
+15.- Conclusiones
+16.- Win (mandar)
 
 3: Especificación del Problema
 3.1. Descripción detallada del problema
@@ -38,6 +39,8 @@
 5.2.3. Arquitectura lógica
 5.3. Arquitectura del hardware
 5.4. Diseño de la interfaz usuaria
+5.4.2. Interfaz de Entrada
+5.4.2. Interfaz de Salida
 5.5. Justificación del diseño
 
 
@@ -63,3 +66,7 @@
 6.3.4.2. Muestra
 6.3.4.3. Procedimiento
 6.4. Resultados
+6.4.1. Resultados de Cuestionario de Usuario Final
+6.4.2. Resultado de entrevistas
+6.4.3. Resultados de Evaluación de Impacto
+6.4.4. Resultados de evaluación heurística
