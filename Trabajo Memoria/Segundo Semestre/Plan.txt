@@ -11,7 +11,7 @@
 11.- Introducción +
 12.- Revisar qué falta
 13.- Completar Anexos +
-14.- Resumen
+14.- Resumen +
 15.- Conclusiones
 16.- Win (mandar)
 
@@ -70,3 +70,5 @@
 6.4.2. Resultado de entrevistas
 6.4.3. Resultados de Evaluación de Impacto
 6.4.4. Resultados de evaluación heurística
+
+-64
