@@ -5,7 +5,7 @@
 5.- Especificación del Problema +
 6.- Descripción de la solución +
 7.- Revisar escritura de Marco Teórico +
-8.- Estado del Arte
+8.- Estado del Arte +
 9.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2) +
 10.- Evaluación de resultados +
 11.- Introducción +
