@@ -9,11 +9,12 @@
 9.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2) +
 10.- Evaluación de resultados +
 11.- Introducción +
-12.- Revisar qué falta
+12.- Revisar qué falta +
 13.- Completar Anexos +
 14.- Resumen +
-15.- Conclusiones
-16.- Win (mandar)
+15.- Conclusiones +
+16.- Indexar
+17.- Win (mandar)
 
 3: Especificación del Problema
 3.1. Descripción detallada del problema
@@ -23,6 +24,9 @@
 3.3.2. Requsitios de Software
 3.4. Características de Calidad
 3.5. Criterios de Aceptación
+3.6. Objetivos
+3.6.1. Objetivo General
+3.6.2. Objetivos Específicos
 
 5 Descripción de la Solución
 5.1. Sobre la solución
