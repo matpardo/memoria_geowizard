@@ -13,8 +13,10 @@
 13.- Completar Anexos +
 14.- Resumen +
 15.- Conclusiones +
-16.- Indexar
-17.- Win (mandar)
+16.- Indexar +
+17.- Win (mandar) +
+18.- Corregir de profesora
+19.- Corregir de profesor
 
 1: Introducción...1
 1.1. Contexto...1
