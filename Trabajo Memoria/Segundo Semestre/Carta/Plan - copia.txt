@@ -1,0 +1,185 @@
+1.- Traspasar Fotos +
+2.- Metodología +
+3.- Experimentación +
+4.- Evaluación de Usabilidad +
+5.- Especificación del Problema +
+6.- Descripción de la solución +
+7.- Revisar escritura de Marco Teórico +
+8.- Estado del Arte +
+9.- Cambiar cap de objetivos por especificación del problema (Y dejar marco teórico como 2) +
+10.- Evaluación de resultados +
+11.- Introducción +
+12.- Revisar qué falta +
+13.- Completar Anexos +
+14.- Resumen +
+15.- Conclusiones +
+16.- Indexar +
+17.- Win (mandar) +
+18.- Corregir de profesora +
+19.- Corregir de profesor +
+20.- Indexar denuevo
+
+1: Introducción...2
+1.1. Contexto...2
+1.2. Problema...2
+1.3. Solución elegida...2
+1.4. Resultados de la solución implementada...3
+1.5. Delimitación del Estudio...3
+1.6. Inserción del Estudio...4-
+1.7. Objetivos ...4
+1.7.1. Objetivo General ...4
+1.7.2. Objetivos específicos...4
+
+2: Marco Teórico...6
+2.1. Estado del arte...6
+2.2. Interfaces físicas...8
+2.3. Aprendizaje...10
+2.4. Aspectos de Usabilidad...11
+
+
+3: Especificación del Problema...16
+3.1. Descripción detallada del problema...16
+3.2. Relevancia de contar con una solución...16
+3.3. Requisitos de la Solución...17
+3.3.1. Requisitos de Usuario...17
+3.3.2. Requsitios de Software...19
+3.4. Características de Calidad...23
+3.5. Criterios de Aceptación...24-
+
+4: Descripción del Videojuego...27
+4.1. Sobre el videojuego...27
+4.1.1. Metáfora...27
+4.1.2. Historia...27
+4.1.3. El videojuego, objetos y niveles...28
+4.2. Arquitectura del Software...30
+4.2.1. Unity, la Plataforma de Desarrollo...30
+4.2.2. Lógica del videojuego...31-
+4.2.2.1. El prototipo...31
+4.2.2.2. Resumen características del Prototipo...33-
+4.2.2.3. Resumen de Rediseño para Versión Final...35-
+4.2.2.4. Descripción detallada de Mecánicas y Objetos...36
+4.2.3. Arquitectura lógica...50-
+4.2.4. Ejemplos de código...53-
+4.3. Arquitectura del hardware...56-
+4.4. Diseño de la interfaz usuaria...57-
+4.4.1. Interfaz de Entrada...57-
+4.4.1.1. Botones del joystick y sus acciones en el videojuego...58-
+4.4.2. Interfaz de Salida...63-
+4.5. Justificación del diseño...63-
+
+5: Metodología...66-
+5.1. Análisis del Prototipo de Videojuego Inicial...66-
+5.2. Los instrumentos y procedimiento general...66-
+5.2.1. Cuestionario de Usuario Final...66-
+5.2.2. Pauta de evaluación heurística...66-
+5.2.3. Instrumento de evaluación de impacto (usabilidad)...67-
+5.3. Desarrollo de Mejoras del Prototipo de Videojuego Inicial...67-
+5.3.1. Apresto...67-
+5.3.2. Análisis...68-
+5.3.3. Diseño, Implementación y Evaluación: Rediseño...68-
+
+6: Validación y Evaluación de Usabilidad...74-
+6.1 Versión del Videojuego...74-
+6.2 Equipo e Interfaces Utilizadas...75-
+6.3 Cuestionarios y procedimiento...76-
+6.3.1. Cuestionario de Usuario Final...76-
+6.3.1.1. Composición del instrumento...76-
+6.3.1.2. Muestra...77-
+6.3.1.3. Tarea realizada...78-
+6.3.1.4. Procedimiento...78-
+6.3.2. Entrevistas...82-
+6.3.2.1. Muestra...82-
+6.3.2.2. Tarea realizada...82-
+6.3.2.3. Procedimiento...82-
+6.3.3. Evaluación de Impacto (usabilidad)...82-
+6.3.3.1. Composición del instrumento...83-
+6.3.3.2. Muestra...85-
+6.3.3.3. Tareas realizadas...86-
+6.3.3.4. Procedimiento...86-
+6.3.4. Pauta de evaluación Heurística...87-
+6.3.4.1. Composición del Instrumento...87-
+6.3.4.2. Muestra...91-
+6.3.4.3. Procedimiento...91-
+6.4. Resultados y Análisis...92-
+6.4.1. Resultados de Cuestionario de Usuario Final...92-
+6.4.2. Resultado de entrevistas...96-
+6.4.3. Resultados Evaluación de Impacto (Usabilidad)...96-
+6.4.4. Resultados de evaluación heurística...97-
+
+7: Conclusiones...101-
+7.1. Resumen...101-
+7.2. Objetivos alcanzados y no alcanzados...101-
+7.3. Análisis del por qué de los resultados...102-
+7.4. Reflexión acerca de relevancia del trabajo realizado...103-
+7.5. Lecciones aprendidas...103-
+7.6. Trabajo futuro...104-
+
+8: Bibliografía...107-
+
+9: Anexos...117-
+Anexo A: Pauta de Usabilidad e Videojuegos...117-
+Anexo B: Pauta de Evaluación Heurística de Videojuegos Educativos...119-
+Anexo C: Pauta de Evaluación de Impacto (Usabilidad)...123-
+Anexo D: Resultados Cuestionarios de Usuario Final Parte 1...128-
+Anexo E: Resultados Cuestionarios de Usuario Final Parte 2...128-
+Anexo F: Resultados Cuestionarios de Usuario Final Preguntas abiertas Parte 1...129-
+Anexo G: Resultados Cuestionarios de Usuario Final Preguntas abiertas Parte 2...130-
+Anexo H: Resultados de Evaluación de Impacto usuario S1 (Completada)...131-
+Anexo I: Resultados de Evaluación de Impacto usuario S7 (Incompleta)...132-
+Anexo J: Resultados de Evaluación de Impacto usuario S8 (Incompleta)...134-
+Anexo K: Resultados de Evaluación de Impacto usuario S9 (Incompleta)...135-
+Anexo L: Resultados de Evaluación de Impacto usuario s10 (Completada)...137-
+Anexo M: Resultados de Evaluación Heurística...139-
+Anexo N: Historia Original, Autor Matías Pardo G...140-
+
+Figura 1: Teclado y Mouse...8
+Figura 2: Phantom...9
+Figura 3: Novint Falcon...9
+Figura 4: Control de Xbox 360...10
+Figura 5: Mapping de perillas de una cocina y sus respectivos quemadores, de apuntes de clase[53]..13
+Figura 6: Vista de una intersección del laberinto...32-
+Figura 7: Vista de la batalla...32
+Figura 8: Cuarto Geométrico. La esfera es el jugador y el cuadrado la salida...33
+Figura 9: Vista Menú Principal...37-
+Figura 10: Esquema Interacciones Menú Principal...38-
+Figura 11: Vista primera intersección del juego (Nivel 1)...39-
+Figura 12: Vista de Nivel 5 del Laberinto...41-
+Figura 13: Imagen de puerta en el final de Nivel 2...42-
+Figura 14: Objeto Acertijo, correspondiente al óvalo azul...43-
+Figura 15: Diagrama de responer acertijo...43-
+Figura 16: Objeto tesoro (Prisma rectangular amarillo)...46-
+Figura 17: Objeto trampa (Prisma rectangular negro)...46-
+Figura 18: Objeto Monstruo en laberinto...47-
+Figura 19: Transportador a actividad del plano cartesiano en Nivel 3 (Es el óvalo café)...47-
+Figura 20: Actividad de plano Cartesiano...50-
+Figura 21: Esquema Simplificado de clases relativas a Construcción de Laberinto...50-
+Figura 22: Código de detección de presionar X en menú principal...53-
+Figura 23: Definición del Nivel 1 en levelData.cs...54-
+Figura 24: Código de reacción de piedra mágica al gatillar Evento Izquierda...55-
+Figura 25: Código de función que define Evento Izquierda...56-
+Figura 26: Código de acción "mover a la izquierda" de piedra mágica...56
+Figura 27: Esquema de Entrada/Salida del Hardware...57-
+Figura 28: Botones de Control de Xbox 360 utilizados en GeoAudioWizard...58-
+Figura 29-35: Usuario final jugando el videojuego GeoAudioWizard (Colegio de ciegos Santa Lucía)...78-81-
+Figura 36: Usuario participando en evaluación de usabilidad de impacto (Colegio de Ciegos Santa Lucía)...87-
+Figura 37: Gráfico Promedio de Satisfacción por aseveración Parte 1, Cuestionario de Usuario Final...93-
+Figura 38: Gráfico Promedio de Satisfacción por aseveración Parte 2, Cuestionario de Usuario Final...93-
+
+
+Tabla 1: Acertijos del Videojuego...44
+Tabla 2: Representación caras del cubo con botones del joystick...59-
+Tabla 3: Botones del joystick y acciones en el laberinto...59-
+Tabla 4: Botones del joystick y acciones en acertijo...60-
+Tabla 5: Botones del joystick y acciones en tesoro...61-
+Tabla 6: Botones del joystick y acciones en pelea...61-
+Tabla 7: Botones del joystick y acciones en plano Cartesiano...62-
+Tabla 8: Botones del joystick y acciones en Menú Principal...62-
+Tabla 9: Botones del joystick y acciones en Menú Juego Anterior...63-
+Tabla 10: Promedio por Aseveración de Cuestionario de Usuario Final...92-
+Tabla 11: Resultados Totales de Pre y Post Evaluación de Impacto por Ítem...96-
+Tabla 12: Promedio por Heurística e Resultados de Evaluación Heurística...97-
+Tabla 13: Resultados Cuestionarios de Usuario Final Parte 1...128-
+Tabla 14: Resultados Cuestionarios de Usuario Final Parte 2...128-
+Tabla 15: Resultados Cuestionarios de Usuario Final preguntas abiertas Parte 1...129-
+Tabla 16: Resultados Cuestionarios de Usuario Final preguntas abiertas Parte 2...130-
+Tabla 17: Resultados evaluación heurística...139-
